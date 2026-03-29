@@ -2476,28 +2476,6 @@ export function AppShowcaseSection() {
             </div>
 
             <div className="min-w-0">
-              <div className="mb-4 flex flex-wrap gap-2 xl:hidden">
-                {showcaseTabs.map((item) => {
-                  const active = item.id === activeTab;
-
-                  return (
-                    <button
-                      key={`${item.id}-mobile`}
-                      type="button"
-                      onClick={() => setActiveTab(item.id)}
-                      className={cn(
-                        "rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] transition-colors",
-                        active
-                          ? "border-[#2563eb] bg-[#2563eb] text-white"
-                          : "border-[color:var(--line)] bg-white text-[color:var(--foreground)] dark:bg-[#111111]"
-                      )}
-                    >
-                      {item.title}
-                    </button>
-                  );
-                })}
-              </div>
-
               <div className="rounded-[1.9rem] bg-white/84 shadow-[0_30px_90px_rgba(10,10,10,0.12)] dark:bg-white/[0.03]">
                 <div className="hidden lg:block">
                   <ActiveDesktopComponent />
