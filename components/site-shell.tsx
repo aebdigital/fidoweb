@@ -3,6 +3,8 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { CookieSettingsTrigger } from "@/components/cookie-consent";
 import { ArrowRightIcon } from "@/components/icons";
+import { MobileNav } from "@/components/mobile-nav";
+import { APP_SIGNIN_LABEL, APP_SIGNIN_URL } from "@/lib/site-config";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 type SiteShellProps = {
@@ -22,13 +24,13 @@ function isActive(activePath: SiteShellProps["activePath"], href: string) {
   return activePath === href;
 }
 
-export function SiteShell({ activePath, children, ctaHref = "/kontakt", ctaLabel = "Kontakt" }: SiteShellProps) {
+export function SiteShell({ activePath, children, ctaHref = APP_SIGNIN_URL, ctaLabel = APP_SIGNIN_LABEL }: SiteShellProps) {
   return (
     <main className="relative min-h-screen overflow-x-clip pb-10">
       <div className="page-haze" aria-hidden="true" />
 
       <header className="sticky top-0 z-50 border-b border-[color:var(--line)] bg-[color:var(--glass)] backdrop-blur-xl">
-        <div className="section-shell flex h-20 items-center justify-between gap-4">
+        <div className="section-shell flex h-16 items-center justify-between gap-4 md:h-20">
           <Link href="/" className="flex items-center">
             <Image src="/assets/logo.png" alt="Logo FIDO Calcul" width={108} height={40} className="h-10 w-auto dark:hidden" />
             <Image src="/assets/dark-logo.jpg" alt="Logo FIDO Calcul v tmavom režime" width={108} height={40} className="hidden h-10 w-auto dark:block" />
@@ -52,12 +54,18 @@ export function SiteShell({ activePath, children, ctaHref = "/kontakt", ctaLabel
           </nav>
 
           <div className="flex items-center gap-3">
-            <ThemeToggle />
+            <div className="hidden md:block">
+              <ThemeToggle />
+            </div>
+            <MobileNav activePath={activePath} items={navigation} ctaHref={ctaHref} ctaLabel={ctaLabel} />
             <Link
               href={ctaHref}
-              className="hidden items-center gap-2 rounded-full bg-[color:var(--foreground)] px-5 py-3 text-sm font-semibold text-[color:var(--background)] transition duration-300 hover:-translate-y-0.5 sm:inline-flex"
+              className="btn-blue-gradient-web btn-rollup hidden items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold text-white transition duration-300 hover:-translate-y-0.5 sm:inline-flex"
             >
-              {ctaLabel}
+              <span className="button-rollup-text" aria-label={ctaLabel}>
+                <span>{ctaLabel}</span>
+                <span aria-hidden="true">{ctaLabel}</span>
+              </span>
               <ArrowRightIcon className="h-4 w-4" />
             </Link>
           </div>

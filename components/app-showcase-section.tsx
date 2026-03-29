@@ -94,8 +94,8 @@ const projectRows: Record<ProjectCategory, ProjectRowData[]> = {
       client: "Novakovci",
       total: "28 440 EUR",
       rooms: 6,
-      status: "Denník aktívny",
-      tone: "green",
+      status: "Cenová ponuka",
+      tone: "blue",
       timer: "02:14:27",
     },
     {
@@ -137,8 +137,8 @@ const projectRows: Record<ProjectCategory, ProjectRowData[]> = {
       client: "Biela 21",
       total: "3 920 EUR",
       rooms: 5,
-      status: "Denník aktívny",
-      tone: "green",
+      status: "Cenová ponuka",
+      tone: "blue",
       timer: "00:46:11",
     },
     {
@@ -285,7 +285,6 @@ const invoicePreviewRecords: InvoicePreviewRecord[] = [
 const projectDetailRooms = [
   { name: "Obývačka", works: 14, total: "6 840 EUR" },
   { name: "Kuchyňa", works: 9, total: "4 220 EUR" },
-  { name: "Spálňa", works: 7, total: "3 160 EUR" },
 ];
 
 const projectDetailFiles = [
@@ -342,6 +341,26 @@ function ArchiveIcon(props: SVGProps<SVGSVGElement>) {
       <path d="M5 7v11a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7" />
       <path d="M9 12h6" />
       <path d="M4 3h16v4H4z" />
+    </svg>
+  );
+}
+
+function PaperclipIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+      <path d="m21.44 11.05-8.49 8.49a6 6 0 0 1-8.49-8.49l8.48-8.48a4 4 0 1 1 5.66 5.66l-8.49 8.48a2 2 0 1 1-2.82-2.83l7.78-7.78" />
+    </svg>
+  );
+}
+
+function TrashIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...props}>
+      <path d="M3 6h18" />
+      <path d="M8 6V4h8v2" />
+      <path d="M6 6l1 14h10l1-14" />
+      <path d="M10 10v6" />
+      <path d="M14 10v6" />
     </svg>
   );
 }
@@ -869,7 +888,7 @@ function ProjectDetailDesktopScene() {
 
           <div className="flex items-center gap-2">
             <span className="text-base font-bold text-[color:var(--foreground)]">202603014</span>
-            <StatusPill label="Denník aktívny" tone="green" />
+            <StatusPill label="Cenová ponuka" tone="blue" />
           </div>
 
           <input
@@ -884,10 +903,10 @@ function ProjectDetailDesktopScene() {
             <div className="space-y-2">
               <div className="flex items-center gap-2">
                 <UserIcon className="h-5 w-5 text-[color:var(--foreground)]" />
-                <h4 className="font-display text-xl font-extrabold tracking-[-0.035em] text-[color:var(--foreground)]">Klient a dodávateľ</h4>
+                <h4 className="text-xl font-semibold text-[color:var(--foreground)]">Klient a dodávateľ</h4>
               </div>
               <div className="grid gap-4 md:grid-cols-2">
-                <div className="rounded-[1.5rem] bg-[color:var(--surface)] p-4 shadow-sm">
+                <div className="rounded-[1.5rem] bg-white p-4 shadow-[0_10px_24px_rgba(0,0,0,0.05)] dark:bg-[#111111]">
                   <div className="flex items-center justify-between gap-3">
                     <div className="min-w-0">
                       <p className="truncate text-[1.2rem] font-semibold text-[color:var(--foreground)]">{client.name}</p>
@@ -896,7 +915,7 @@ function ProjectDetailDesktopScene() {
                     <ArrowRightIcon className="h-4 w-4 text-[color:var(--muted)]" />
                   </div>
                 </div>
-                <div className="rounded-[1.5rem] bg-[color:var(--surface)] p-4 shadow-sm">
+                <div className="rounded-[1.5rem] bg-white p-4 shadow-[0_10px_24px_rgba(0,0,0,0.05)] dark:bg-[#111111]">
                   <div className="flex items-center justify-between gap-3">
                     <div className="min-w-0">
                       <p className="truncate text-[1.2rem] font-semibold text-[color:var(--foreground)]">FIDO Calcul</p>
@@ -912,9 +931,15 @@ function ProjectDetailDesktopScene() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <DocumentIcon className="h-5 w-5 text-[color:var(--foreground)]" />
-                  <h4 className="font-display text-xl font-extrabold tracking-[-0.035em] text-[color:var(--foreground)]">Projekt</h4>
+                  <h4 className="text-xl font-semibold text-[color:var(--foreground)]">Projekt</h4>
                 </div>
                 <div className="flex gap-2">
+                  <button
+                    type="button"
+                    className="flex h-10 w-10 items-center justify-center rounded-[1.1rem] bg-[#ef4444] text-white shadow-[0_14px_30px_rgba(239,68,68,0.24)]"
+                  >
+                    <TrashIcon className="h-4 w-4" />
+                  </button>
                   <AppHeaderButton dark>
                     <PlusIcon className="h-4 w-4" />
                   </AppHeaderButton>
@@ -922,7 +947,7 @@ function ProjectDetailDesktopScene() {
               </div>
               <div className="space-y-3">
                 {projectDetailRooms.map((room) => (
-                <div key={room.name} className="flex items-center justify-between rounded-[1.5rem] bg-[color:var(--surface)] px-5 py-4 shadow-sm">
+                <div key={room.name} className="flex items-center justify-between rounded-[1.5rem] bg-white px-5 py-4 shadow-[0_10px_24px_rgba(0,0,0,0.05)] dark:bg-[#111111]">
                   <div className="min-w-0">
                       <p className="truncate text-[1.2rem] font-semibold text-[color:var(--foreground)]">{room.name}</p>
                       <p className="mt-1 text-sm text-[color:var(--muted)]">{room.works} prác</p>
@@ -942,21 +967,21 @@ function ProjectDetailDesktopScene() {
             <div className="space-y-2">
               <div className="flex items-center gap-2">
                 <MoneyIcon className="h-5 w-5 text-[color:var(--foreground)]" />
-                <h4 className="font-display text-xl font-extrabold tracking-[-0.035em] text-[color:var(--foreground)]">Cenová ponuka</h4>
+                <h4 className="text-xl font-semibold text-[color:var(--foreground)]">Cenová ponuka</h4>
               </div>
-              <div className="rounded-[1.6rem] bg-[color:var(--surface)] p-5 shadow-sm">
+              <div className="rounded-[1.6rem] bg-white p-5 shadow-[0_10px_24px_rgba(0,0,0,0.05)] dark:bg-[#111111]">
                 <div className="space-y-1">
                   <div className="flex items-center justify-between text-base font-semibold text-[color:var(--foreground)]">
                     <span>bez DPH</span>
-                    <span>28 440 EUR</span>
+                    <span>11 060 EUR</span>
                   </div>
                   <div className="flex items-center justify-between text-base font-semibold text-[color:var(--foreground)]">
                     <span>DPH (23%)</span>
-                    <span>6 541 EUR</span>
+                    <span>2 544 EUR</span>
                   </div>
                   <div className="flex items-center justify-between pt-1 text-2xl font-black text-[color:var(--foreground)]">
                     <span>Spolu</span>
-                    <span>34 981 EUR</span>
+                    <span>13 604 EUR</span>
                   </div>
                 </div>
 
@@ -976,17 +1001,22 @@ function ProjectDetailDesktopScene() {
             <div className="space-y-2">
               <div className="flex items-center gap-2">
                 <DocumentIcon className="h-5 w-5 text-[color:var(--foreground)]" />
-                <h4 className="font-display text-xl font-extrabold tracking-[-0.035em] text-[color:var(--foreground)]">Poznámky k projektu</h4>
+                <h4 className="text-xl font-semibold text-[color:var(--foreground)]">Poznámky k projektu</h4>
               </div>
-              <div className="min-h-[128px] rounded-[1.6rem] bg-[color:var(--surface)] p-4 text-sm leading-7 text-[color:var(--muted)] shadow-sm">
+              <div className="min-h-[128px] rounded-[1.6rem] bg-white p-4 text-sm leading-7 text-[color:var(--muted)] shadow-[0_10px_24px_rgba(0,0,0,0.05)] dark:bg-[#111111]">
                 Klient chce začať montáž v druhej polovici apríla. Priorita sú obývačka a kuchyňa, zvyšok môže ísť po dodaní materiálu.
               </div>
             </div>
 
             <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <DocumentIcon className="h-5 w-5 text-[color:var(--foreground)]" />
-                <h4 className="font-display text-xl font-extrabold tracking-[-0.035em] text-[color:var(--foreground)]">Súbory</h4>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <PaperclipIcon className="h-5 w-5 text-[color:var(--foreground)]" />
+                  <h4 className="text-xl font-semibold text-[color:var(--foreground)]">Súbory</h4>
+                </div>
+                <AppHeaderButton dark>
+                  <PlusIcon className="h-4 w-4" />
+                </AppHeaderButton>
               </div>
               <div className="rounded-[1.6rem] bg-[color:var(--surface)] p-3 shadow-sm">
                 <div className="grid grid-cols-3 gap-2">
@@ -1017,7 +1047,7 @@ function ProjectDetailMobileScene() {
         <div className="mt-4">
           <p className="text-base font-bold text-[color:var(--foreground)]">202603014</p>
           <div className="mt-2">
-            <StatusPill label="Denník aktívny" tone="green" />
+            <StatusPill label="Cenová ponuka" tone="blue" />
           </div>
           <h3 className="mt-3 font-display text-[2.15rem] font-extrabold leading-none tracking-[-0.045em] text-[color:var(--foreground)]">Rodinný dom Ražtočná</h3>
         </div>
@@ -1028,13 +1058,13 @@ function ProjectDetailMobileScene() {
 
         <div className="mt-5 space-y-5">
           <div className="space-y-2">
-            <h4 className="font-display text-lg font-extrabold tracking-[-0.035em] text-[color:var(--foreground)]">Klient a dodávateľ</h4>
+            <h4 className="text-lg font-semibold text-[color:var(--foreground)]">Klient a dodávateľ</h4>
             <div className="space-y-3">
-              <div className="rounded-[1.4rem] bg-[color:var(--surface)] p-4">
+              <div className="rounded-[1.4rem] bg-white p-4 shadow-[0_10px_24px_rgba(0,0,0,0.05)] dark:bg-[#111111]">
                 <p className="text-[1.1rem] font-semibold text-[color:var(--foreground)]">Novakovci</p>
                 <p className="mt-1 text-sm text-[color:var(--muted)]">Javorová 7</p>
               </div>
-              <div className="rounded-[1.4rem] bg-[color:var(--surface)] p-4">
+              <div className="rounded-[1.4rem] bg-white p-4 shadow-[0_10px_24px_rgba(0,0,0,0.05)] dark:bg-[#111111]">
                 <p className="text-[1.1rem] font-semibold text-[color:var(--foreground)]">FIDO Calcul</p>
                 <p className="mt-1 text-sm text-[color:var(--muted)]">50291821</p>
               </div>
@@ -1042,10 +1072,26 @@ function ProjectDetailMobileScene() {
           </div>
 
           <div className="space-y-2">
-            <h4 className="font-display text-lg font-extrabold tracking-[-0.035em] text-[color:var(--foreground)]">Projekt</h4>
+            <div className="flex items-center justify-between">
+              <h4 className="text-lg font-semibold text-[color:var(--foreground)]">Projekt</h4>
+              <div className="flex gap-2">
+                <button
+                  type="button"
+                  className="flex h-9 w-9 items-center justify-center rounded-[1rem] bg-[#ef4444] text-white shadow-[0_12px_24px_rgba(239,68,68,0.24)]"
+                >
+                  <TrashIcon className="h-4 w-4" />
+                </button>
+                <button
+                  type="button"
+                  className="flex h-9 w-9 items-center justify-center rounded-[1rem] bg-[color:var(--foreground)] text-[color:var(--background)]"
+                >
+                  <PlusIcon className="h-4 w-4" />
+                </button>
+              </div>
+            </div>
             <div className="space-y-3">
               {projectDetailRooms.map((room) => (
-                <div key={room.name} className="rounded-[1.4rem] bg-[color:var(--surface)] px-4 py-4">
+                <div key={room.name} className="rounded-[1.4rem] bg-white px-4 py-4 shadow-[0_10px_24px_rgba(0,0,0,0.05)] dark:bg-[#111111]">
                   <div className="flex items-center justify-between gap-3">
                     <div>
                       <p className="text-[1.05rem] font-semibold text-[color:var(--foreground)]">{room.name}</p>
@@ -1059,21 +1105,43 @@ function ProjectDetailMobileScene() {
           </div>
 
           <div className="space-y-2">
-            <h4 className="font-display text-lg font-extrabold tracking-[-0.035em] text-[color:var(--foreground)]">Cenová ponuka</h4>
-            <div className="rounded-[1.4rem] bg-[color:var(--surface)] p-4">
+            <h4 className="text-lg font-semibold text-[color:var(--foreground)]">Cenová ponuka</h4>
+            <div className="rounded-[1.4rem] bg-white p-4 shadow-[0_10px_24px_rgba(0,0,0,0.05)] dark:bg-[#111111]">
               <div className="space-y-1 text-base font-semibold text-[color:var(--foreground)]">
                 <div className="flex items-center justify-between">
                   <span>bez DPH</span>
-                  <span>28 440 EUR</span>
+                  <span>11 060 EUR</span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span>DPH (23%)</span>
-                  <span>6 541 EUR</span>
+                  <span>2 544 EUR</span>
                 </div>
                 <div className="flex items-center justify-between pt-1 text-xl font-black">
                   <span>Spolu</span>
-                  <span>34 981 EUR</span>
+                  <span>13 604 EUR</span>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <h4 className="text-lg font-semibold text-[color:var(--foreground)]">Súbory</h4>
+            <div className="rounded-[1.4rem] bg-white p-4 shadow-[0_10px_24px_rgba(0,0,0,0.05)] dark:bg-[#111111]">
+              <div className="mb-3 flex items-center justify-between">
+                <p className="text-sm font-medium text-[color:var(--muted)]">Projektové podklady</p>
+                <button
+                  type="button"
+                  className="flex h-9 w-9 items-center justify-center rounded-[1rem] bg-[color:var(--foreground)] text-[color:var(--background)]"
+                >
+                  <PlusIcon className="h-4 w-4" />
+                </button>
+              </div>
+              <div className="grid grid-cols-3 gap-2">
+                {projectDetailFiles.slice(0, 3).map((src, index) => (
+                  <div key={`${src}-mobile-${index}`} className="relative aspect-square overflow-hidden rounded-[0.95rem] border border-[color:var(--line)] bg-[color:var(--surface)]">
+                    <Image src={src} alt={`Súbor ${index + 1}`} fill className="object-cover" />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -1467,7 +1535,8 @@ function InvoiceListRow({ invoice, active = false }: { invoice: InvoicePreviewRe
 
 function CreateInvoiceOverlay({ invoice }: { invoice: InvoicePreviewRecord }) {
   return (
-    <div className="absolute inset-x-6 top-6 bottom-6 overflow-hidden rounded-[2rem] border border-[color:var(--line)] bg-white/96 shadow-[0_38px_90px_rgba(0,0,0,0.18)] backdrop-blur-xl dark:bg-[#0f0f0f]/96">
+    <div className="absolute inset-x-6 top-6 bottom-6 flex overflow-hidden rounded-[2rem] border border-[color:var(--line)] bg-white/96 shadow-[0_38px_90px_rgba(0,0,0,0.18)] backdrop-blur-xl dark:bg-[#0f0f0f]/96">
+      <div className="flex min-h-0 flex-1 flex-col">
       <div className="border-b border-[color:var(--line)] px-6 py-5">
         <div className="flex items-start justify-between gap-4">
           <div className="min-w-0">
@@ -1478,98 +1547,232 @@ function CreateInvoiceOverlay({ invoice }: { invoice: InvoicePreviewRecord }) {
             <XIcon className="h-5 w-5" />
           </button>
         </div>
+        <div className="mt-4 flex gap-2 overflow-x-auto pb-1">
+          {[
+            { label: "Faktúra", active: true },
+            { label: "Zálohová faktúra", active: false },
+            { label: "Dodací list", active: false },
+          ].map((type) => (
+            <button
+              key={type.label}
+              type="button"
+              className={cn(
+                "whitespace-nowrap rounded-[0.95rem] px-4 py-2 text-sm font-semibold transition-colors",
+                type.active
+                  ? "bg-[color:var(--foreground)] text-[color:var(--background)] shadow-[0_12px_26px_rgba(10,10,10,0.16)]"
+                  : "border border-[color:var(--line)] bg-white text-[color:var(--muted)] dark:bg-[#111111]"
+              )}
+            >
+              {type.label}
+            </button>
+          ))}
+        </div>
       </div>
 
-      <div className="grid h-[calc(100%-118px)] gap-5 overflow-y-auto px-5 py-5 lg:grid-cols-[1.05fr_0.95fr]">
+      <div className="min-h-0 flex-1 overflow-y-auto px-5 pb-8 pt-5 space-y-5">
         <div className="space-y-5">
-          <div className="rounded-[1.5rem] border border-[color:var(--line)] bg-white px-5 py-4 shadow-[0_10px_24px_rgba(0,0,0,0.05)] dark:bg-[#111111]">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">Názov projektu</p>
-            <p className="mt-2 text-[1.2rem] font-semibold text-[color:var(--foreground)]">{invoice.projectName}</p>
-          </div>
-
-          <div className="rounded-[1.5rem] border border-[color:var(--line)] bg-white px-5 py-4 shadow-[0_10px_24px_rgba(0,0,0,0.05)] dark:bg-[#111111]">
-            <div className="grid gap-4 sm:grid-cols-2">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">Klient</p>
-                <p className="mt-2 text-[1.1rem] font-semibold text-[color:var(--foreground)]">{invoice.clientName}</p>
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">Číslo faktúry</p>
-                <p className="mt-2 text-[1.1rem] font-semibold text-[color:var(--foreground)]">202603015</p>
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">Dátum vystavenia</p>
-                <p className="mt-2 text-sm font-semibold text-[color:var(--foreground)]">29. 3. 2026</p>
-              </div>
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">Splatnosť</p>
-                <p className="mt-2 text-sm font-semibold text-[color:var(--foreground)]">12. 4. 2026</p>
+          <div className="space-y-2">
+            <h4 className="text-[1.45rem] font-semibold text-[color:var(--foreground)]">Zhrnutie</h4>
+            <div className="rounded-[1.5rem] border border-[color:var(--line)] bg-white px-5 py-4 shadow-[0_10px_24px_rgba(0,0,0,0.05)] dark:bg-[#111111]">
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between text-[15px] font-semibold text-[color:var(--foreground)]">
+                  <span>Cena bez DPH</span>
+                  <span>11 060,00 €</span>
+                </div>
+                <div className="flex items-center justify-between text-[15px] font-semibold text-[color:var(--foreground)]">
+                  <span>DPH</span>
+                  <span>2 543,80 €</span>
+                </div>
+                <div className="flex items-center justify-between pt-0.5 text-[18px] font-semibold text-[color:var(--foreground)]">
+                  <span>Celková cena</span>
+                  <span>13 603,80 €</span>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="rounded-[1.5rem] border border-[color:var(--line)] bg-white px-5 py-4 shadow-[0_10px_24px_rgba(0,0,0,0.05)] dark:bg-[#111111]">
-            <div className="mb-3 flex items-center gap-2">
-              <DocumentIcon className="h-5 w-5 text-[color:var(--foreground)]" />
-              <h4 className="font-display text-xl font-extrabold tracking-[-0.035em] text-[color:var(--foreground)]">Položky faktúry</h4>
-            </div>
+          <div className="space-y-2">
+            <h4 className="text-[1.45rem] font-semibold text-[color:var(--foreground)]">Nastavenia</h4>
             <div className="space-y-3">
-              {invoice.items.map((item) => (
-                <div key={item.label} className="flex items-center justify-between gap-3 rounded-[1.1rem] bg-[color:var(--surface)] px-4 py-3">
-                  <div className="min-w-0">
-                    <p className="truncate text-base font-semibold text-[color:var(--foreground)]">{item.label}</p>
-                    <p className="text-sm text-[color:var(--muted)]">{item.qty}</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-sm text-[color:var(--muted)]">{item.unitPrice}</p>
-                    <p className="text-base font-semibold text-[color:var(--foreground)]">{item.total}</p>
+              <div className="rounded-[1.35rem] bg-[color:var(--surface)] px-4 py-3">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="text-base font-medium text-[color:var(--foreground)]">Číslo faktúry</span>
+                  <div className="rounded-[0.95rem] border-2 border-[color:var(--foreground)] bg-white px-3 py-2 text-right text-base font-medium text-[color:var(--foreground)] dark:bg-[#111111]">
+                    202603015
                   </div>
                 </div>
-              ))}
+              </div>
+
+              <div className="rounded-[1.35rem] bg-[color:var(--surface)] px-4 py-4">
+                <span className="block text-base font-medium text-[color:var(--foreground)]">Názov projektu</span>
+                <div className="mt-2 rounded-[1rem] border-2 border-[color:var(--foreground)] bg-white px-4 py-3 text-base text-[color:var(--foreground)] dark:bg-[#111111]">
+                  {invoice.projectName}
+                </div>
+              </div>
+
+              <div className="rounded-[1.35rem] bg-[color:var(--surface)] px-4 py-4">
+                <span className="block text-base font-medium text-[color:var(--foreground)]">Klient</span>
+                <div className="mt-2 flex items-center gap-3 rounded-[1rem] bg-white p-3 shadow-sm dark:bg-[#111111]">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#dbeafe] text-[#2563eb]">
+                    <UserIcon className="h-5 w-5" />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="truncate text-base font-semibold text-[color:var(--foreground)]">{invoice.clientName}</p>
+                    <p className="truncate text-xs text-[color:var(--muted)]">kontakt@fido.sk</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-[1.35rem] bg-[color:var(--surface)] px-4 py-4">
+                <span className="block text-base font-medium text-[color:var(--foreground)]">Úvodná poznámka</span>
+                <div className="mt-2 rounded-[1rem] border-2 border-[color:var(--foreground)] bg-white px-4 py-3 text-base text-[color:var(--foreground)] dark:bg-[#111111]">
+                  Cenová ponuka CP-2026-014
+                </div>
+              </div>
+
+              <div className="grid gap-3 sm:grid-cols-2">
+                <div className="rounded-[1.35rem] bg-[color:var(--surface)] px-4 py-3">
+                  <span className="block text-base font-medium text-[color:var(--foreground)]">Dátum vystavenia</span>
+                  <div className="mt-2 rounded-[0.95rem] border border-[color:var(--line)] bg-white px-3 py-2 text-sm font-medium text-[color:var(--foreground)] dark:bg-[#111111]">
+                    29. 3. 2026
+                  </div>
+                </div>
+                <div className="rounded-[1.35rem] bg-[color:var(--surface)] px-4 py-3">
+                  <span className="block text-base font-medium text-[color:var(--foreground)]">Dátum dodania</span>
+                  <div className="mt-2 rounded-[0.95rem] border border-[color:var(--line)] bg-white px-3 py-2 text-sm font-medium text-[color:var(--foreground)] dark:bg-[#111111]">
+                    29. 3. 2026
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-[1.35rem] bg-[color:var(--surface)] px-4 py-3">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="text-base font-medium text-[color:var(--foreground)]">Typ úhrady</span>
+                  <div className="flex gap-2">
+                    <button type="button" className="rounded-[0.9rem] bg-[color:var(--foreground)] px-4 py-2 text-sm font-medium text-[color:var(--background)]">
+                      Bankový prevod
+                    </button>
+                    <button type="button" className="rounded-[0.9rem] border border-[color:var(--line)] bg-white px-4 py-2 text-sm font-medium text-[color:var(--muted)] dark:bg-[#111111]">
+                      Hotovosť
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div className="rounded-[1.35rem] bg-[color:var(--surface)] px-4 py-4">
+                <span className="block text-base font-medium text-[color:var(--foreground)]">Splatnosť faktúry</span>
+                <div className="mt-3 grid grid-cols-4 gap-2">
+                  {[7, 14, 30, 45].map((days, index) => (
+                    <button
+                      key={days}
+                      type="button"
+                      className={cn(
+                        "rounded-[0.95rem] px-3 py-2 text-center text-sm font-semibold",
+                        index === 1
+                          ? "bg-[color:var(--foreground)] text-[color:var(--background)]"
+                          : "border border-[color:var(--line)] bg-white text-[color:var(--foreground)] dark:bg-[#111111]"
+                      )}
+                    >
+                      {days} dní
+                    </button>
+                  ))}
+                </div>
+                <p className="mt-2 text-right text-xs text-[color:var(--muted)]">Splatnosť: 12. 4. 2026</p>
+              </div>
+
+              <div className="rounded-[1.35rem] bg-[color:var(--surface)] px-4 py-4">
+                <span className="block text-base font-medium text-[color:var(--foreground)]">Poznámka na záver</span>
+                <div className="mt-2 min-h-[96px] rounded-[1rem] border-2 border-[color:var(--foreground)] bg-white px-4 py-3 text-sm leading-7 text-[color:var(--muted)] dark:bg-[#111111]">
+                  Ďakujeme za spoluprácu. Položky je ešte možné upraviť pred vygenerovaním PDF.
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
         <div className="space-y-5">
-          <div className="rounded-[1.5rem] border border-[color:var(--line)] bg-white px-5 py-4 shadow-[0_10px_24px_rgba(0,0,0,0.05)] dark:bg-[#111111]">
-            <div className="mb-3 flex items-center gap-2">
-              <MoneyIcon className="h-5 w-5 text-[color:var(--foreground)]" />
-              <h4 className="font-display text-xl font-extrabold tracking-[-0.035em] text-[color:var(--foreground)]">Suma</h4>
-            </div>
-            <div className="space-y-2">
-              <div className="flex items-center justify-between text-base font-semibold text-[color:var(--foreground)]">
-                <span>bez DPH</span>
-                <span>{invoice.amount}</span>
+          <div className="space-y-2">
+            <h4 className="text-[1.45rem] font-semibold text-[color:var(--foreground)]">Položky</h4>
+            <div className="rounded-[1.5rem] border border-[color:var(--line)] bg-white px-5 py-4 shadow-[0_10px_24px_rgba(0,0,0,0.05)] dark:bg-[#111111]">
+              <div className="relative mb-4">
+                <SearchIcon className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-[color:var(--muted)]" />
+                <input
+                  readOnly
+                  value=""
+                  placeholder="Vyhľadať a pridať položku..."
+                  className="w-full rounded-[1rem] bg-[color:var(--surface)] py-3 pl-12 pr-12 text-sm text-[color:var(--foreground)] outline-none"
+                />
+                <button type="button" className="absolute right-4 top-1/2 -translate-y-1/2 text-[color:var(--foreground)]">
+                  <PlusIcon className="h-5 w-5" />
+                </button>
               </div>
-              <div className="flex items-center justify-between text-base font-semibold text-[color:var(--foreground)]">
-                <span>DPH (23%)</span>
-                <span>6 541 EUR</span>
-              </div>
-              <div className="flex items-center justify-between pt-1 text-2xl font-black text-[color:var(--foreground)]">
-                <span>Spolu</span>
-                <span>34 981 EUR</span>
+
+              <div className="grid gap-4 xl:grid-cols-3">
+                {[
+                  {
+                    heading: "Práca",
+                    items: [
+                      { name: "Montáž okien", meta: "12 h · 36,00 € / h", total: "432,00 €" },
+                      { name: "Tesnenie a doplnky", meta: "8 h · 34,00 € / h", total: "272,00 €" },
+                    ],
+                  },
+                  {
+                    heading: "Materiál",
+                    items: [
+                      { name: "Kovanie", meta: "4 ks · 128,00 €", total: "512,00 €" },
+                      { name: "Parapety", meta: "6 ks · 74,00 €", total: "444,00 €" },
+                    ],
+                  },
+                  {
+                    heading: "Ostatné",
+                    items: [
+                      { name: "Doprava", meta: "1 × 68,00 €", total: "68,00 €" },
+                      { name: "Lešenie", meta: "1 × 95,00 €", total: "95,00 €" },
+                    ],
+                  },
+                ].map((group) => (
+                  <div key={group.heading} className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <h5 className="text-base font-bold text-[color:var(--foreground)]">{group.heading}</h5>
+                      <div className="flex items-center gap-1">
+                        <button type="button" className="rounded-[0.75rem] bg-[#ef4444] p-1.5 text-white">
+                          <TrashIcon className="h-4 w-4" />
+                        </button>
+                        <button type="button" className="rounded-[0.75rem] bg-[color:var(--foreground)] p-1.5 text-[color:var(--background)]">
+                          <PlusIcon className="h-4 w-4" />
+                        </button>
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      {group.items.map((item) => (
+                        <div key={item.name} className="rounded-[1rem] bg-[color:var(--surface)] px-4 py-3">
+                          <div className="flex items-start justify-between gap-3">
+                            <div className="min-w-0">
+                              <p className="truncate text-sm font-semibold text-[color:var(--foreground)]">{item.name}</p>
+                              <p className="mt-1 text-xs text-[color:var(--muted)]">{item.meta}</p>
+                            </div>
+                            <p className="text-sm font-semibold text-[color:var(--foreground)]">{item.total}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
 
-          <div className="rounded-[1.5rem] border border-[color:var(--line)] bg-white px-5 py-4 shadow-[0_10px_24px_rgba(0,0,0,0.05)] dark:bg-[#111111]">
-            <div className="mb-3 flex items-center gap-2">
-              <UsersIcon className="h-5 w-5 text-[color:var(--foreground)]" />
-              <h4 className="font-display text-xl font-extrabold tracking-[-0.035em] text-[color:var(--foreground)]">Poznámka</h4>
-            </div>
-            <p className="text-sm leading-7 text-[color:var(--muted)]">
-              Vystavené priamo z projektu. Položky sa pripravujú z aktuálneho stavu zákazky a pred odoslaním sa ešte dajú upraviť.
-            </p>
-          </div>
+        </div>
 
-          <div className="flex gap-3">
-            <button type="button" className="flex-1 rounded-[1.2rem] border-2 border-[color:var(--foreground)] bg-white px-4 py-3 text-base font-bold text-[color:var(--foreground)] dark:bg-[#111111]">
-              Náhľad
-            </button>
-            <button type="button" className="flex-1 rounded-[1.2rem] bg-[color:var(--foreground)] px-4 py-3 text-base font-bold text-[color:var(--background)]">
-              Uložiť
-            </button>
-          </div>
+      </div>
+
+        <div className="mt-auto border-t border-[color:var(--line)] bg-white/96 px-5 py-4 backdrop-blur-xl dark:bg-[#111111]/96">
+          <button
+            type="button"
+            className="btn-blue-gradient-web w-full rounded-[1.1rem] px-4 py-3 text-base font-black text-white"
+          >
+            Vystaviť faktúru
+          </button>
         </div>
       </div>
     </div>
@@ -1683,56 +1886,131 @@ function InvoicesMobileScene() {
                 <XIcon className="h-5 w-5" />
               </button>
             </div>
+            <div className="mt-3 flex gap-2 overflow-x-auto pb-1">
+              {["Faktúra", "Zálohová", "Dodací list"].map((type, index) => (
+                <button
+                  key={type}
+                  type="button"
+                  className={cn(
+                    "whitespace-nowrap rounded-[0.9rem] px-3 py-2 text-sm font-semibold",
+                    index === 0
+                      ? "bg-[color:var(--foreground)] text-[color:var(--background)]"
+                      : "border border-[color:var(--line)] bg-white text-[color:var(--muted)] dark:bg-[#111111]"
+                  )}
+                >
+                  {type}
+                </button>
+              ))}
+            </div>
           </div>
           <div className="space-y-4 overflow-y-auto p-4">
-            <div className="rounded-[1.3rem] bg-[color:var(--surface)] p-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">Názov projektu</p>
-              <p className="mt-2 text-lg font-semibold text-[color:var(--foreground)]">{selectedInvoice.projectName}</p>
-            </div>
-            <div className="rounded-[1.3rem] bg-[color:var(--surface)] p-4">
-              <div className="grid gap-3 sm:grid-cols-2">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">Klient</p>
-                  <p className="mt-2 text-base font-semibold text-[color:var(--foreground)]">{selectedInvoice.clientName}</p>
-                </div>
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">Číslo faktúry</p>
-                  <p className="mt-2 text-base font-semibold text-[color:var(--foreground)]">202603015</p>
-                </div>
-              </div>
-            </div>
-            <div className="rounded-[1.3rem] bg-[color:var(--surface)] p-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">Položky faktúry</p>
-              <div className="mt-3 space-y-3">
-                {selectedInvoice.items.map((item) => (
-                  <div key={item.label} className="flex items-center justify-between gap-3">
-                    <div>
-                      <p className="text-base font-semibold text-[color:var(--foreground)]">{item.label}</p>
-                      <p className="text-sm text-[color:var(--muted)]">{item.qty}</p>
-                    </div>
-                    <p className="text-base font-semibold text-[color:var(--foreground)]">{item.total}</p>
+            <div className="space-y-2">
+              <h4 className="text-lg font-semibold text-[color:var(--foreground)]">Zhrnutie</h4>
+              <div className="rounded-[1.3rem] bg-[color:var(--surface)] p-4">
+                <div className="space-y-1 text-[15px] font-semibold text-[color:var(--foreground)]">
+                  <div className="flex items-center justify-between">
+                    <span>Cena bez DPH</span>
+                    <span>11 060,00 €</span>
                   </div>
-                ))}
+                  <div className="flex items-center justify-between">
+                    <span>DPH</span>
+                    <span>2 543,80 €</span>
+                  </div>
+                  <div className="flex items-center justify-between pt-1 text-lg">
+                    <span>Celková cena</span>
+                    <span>13 603,80 €</span>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="rounded-[1.3rem] bg-[color:var(--surface)] p-4">
-              <div className="flex items-center justify-between text-base font-semibold text-[color:var(--foreground)]">
-                <span>bez DPH</span>
-                <span>{selectedInvoice.amount}</span>
-              </div>
-              <div className="mt-2 flex items-center justify-between text-xl font-black text-[color:var(--foreground)]">
-                <span>Spolu</span>
-                <span>34 981 EUR</span>
+
+            <div className="space-y-2">
+              <h4 className="text-lg font-semibold text-[color:var(--foreground)]">Nastavenia</h4>
+              <div className="rounded-[1.3rem] bg-[color:var(--surface)] p-4">
+                <div className="space-y-3">
+                  {[
+                    ["Číslo faktúry", "202603015"],
+                    ["Názov projektu", selectedInvoice.projectName],
+                    ["Klient", selectedInvoice.clientName],
+                    ["Dátum vystavenia", "29. 3. 2026"],
+                  ].map(([label, value]) => (
+                    <div key={label}>
+                      <p className="text-sm font-medium text-[color:var(--foreground)]">{label}</p>
+                      <div className="mt-1 rounded-[0.95rem] border border-[color:var(--line)] bg-white px-3 py-2 text-sm text-[color:var(--foreground)] dark:bg-[#111111]">
+                        {value}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
-            <div className="flex gap-3">
-              <button type="button" className="flex-1 rounded-[1rem] border-2 border-[color:var(--foreground)] bg-white px-4 py-3 text-sm font-bold text-[color:var(--foreground)] dark:bg-[#111111]">
-                Náhľad
-              </button>
-              <button type="button" className="flex-1 rounded-[1rem] bg-[color:var(--foreground)] px-4 py-3 text-sm font-bold text-[color:var(--background)]">
-                Uložiť
-              </button>
+
+            <div className="space-y-2">
+              <h4 className="text-lg font-semibold text-[color:var(--foreground)]">Položky</h4>
+              <div className="rounded-[1.3rem] bg-[color:var(--surface)] p-4">
+                <div className="relative">
+                  <SearchIcon className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[color:var(--muted)]" />
+                  <input
+                    readOnly
+                    value=""
+                    placeholder="Vyhľadať a pridať položku..."
+                    className="w-full rounded-[0.95rem] bg-white py-3 pl-10 pr-10 text-sm text-[color:var(--foreground)] dark:bg-[#111111]"
+                  />
+                  <button type="button" className="absolute right-3 top-1/2 -translate-y-1/2 text-[color:var(--foreground)]">
+                    <PlusIcon className="h-4 w-4" />
+                  </button>
+                </div>
+                <div className="mt-4 space-y-4">
+                  {[
+                    {
+                      heading: "Práca",
+                      items: [
+                        ["Montáž okien", "12 h · 36,00 € / h", "432,00 €"],
+                        ["Tesnenie a doplnky", "8 h · 34,00 € / h", "272,00 €"],
+                      ],
+                    },
+                    {
+                      heading: "Materiál",
+                      items: [["Kovanie", "4 ks · 128,00 €", "512,00 €"]],
+                    },
+                    {
+                      heading: "Ostatné",
+                      items: [["Doprava", "1 × 68,00 €", "68,00 €"]],
+                    },
+                  ].map((group) => (
+                    <div key={group.heading}>
+                      <div className="mb-2 flex items-center justify-between">
+                        <h5 className="text-sm font-bold text-[color:var(--foreground)]">{group.heading}</h5>
+                        <div className="flex gap-1">
+                          <button type="button" className="rounded-[0.7rem] bg-[#ef4444] p-1.5 text-white">
+                            <TrashIcon className="h-3.5 w-3.5" />
+                          </button>
+                          <button type="button" className="rounded-[0.7rem] bg-[color:var(--foreground)] p-1.5 text-[color:var(--background)]">
+                            <PlusIcon className="h-3.5 w-3.5" />
+                          </button>
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        {group.items.map(([name, meta, total]) => (
+                          <div key={name} className="rounded-[0.95rem] bg-white px-3 py-3 dark:bg-[#111111]">
+                            <div className="flex items-start justify-between gap-3">
+                              <div className="min-w-0">
+                                <p className="truncate text-sm font-semibold text-[color:var(--foreground)]">{name}</p>
+                                <p className="mt-1 text-xs text-[color:var(--muted)]">{meta}</p>
+                              </div>
+                              <p className="text-sm font-semibold text-[color:var(--foreground)]">{total}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
+            <button type="button" className="w-full rounded-[1rem] bg-[#3b82f6] px-4 py-3 text-sm font-black text-white shadow-[0_14px_28px_rgba(59,130,246,0.28)]">
+              Vystaviť faktúru
+            </button>
           </div>
         </div>
       </div>
@@ -1753,7 +2031,7 @@ function ClientDetailPanel({ client }: { client: ClientRecord }) {
           {client.type === "corporation" ? "Firemná osoba" : "Súkromná osoba"}
         </p>
         <button type="button" className="mt-1 inline-flex items-center gap-1 text-xs text-[color:var(--foreground)] underline underline-offset-2">
-          <span>Zmenit typ osoby</span>
+          <span>Zmeniť typ osoby</span>
           <ChevronDownIcon className="h-4 w-4" />
         </button>
       </div>
@@ -1763,20 +2041,20 @@ function ClientDetailPanel({ client }: { client: ClientRecord }) {
           <p className="mb-3 text-sm font-semibold text-[color:var(--foreground)]">Kontakt</p>
           <div className="space-y-3">
             <div className="rounded-[1rem] border border-[color:var(--line)] bg-white px-4 py-3 dark:bg-[#0f0f0f]">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">Nazov</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">Názov firmy</p>
               <p className="mt-1 text-[1.15rem] font-semibold text-[color:var(--foreground)]">{client.name}</p>
             </div>
             <div className="rounded-[1rem] border border-[color:var(--line)] bg-white px-4 py-3 dark:bg-[#0f0f0f]">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">Email</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">E-mail</p>
               <p className="mt-1 text-[1.05rem] font-semibold text-[color:var(--foreground)]">{client.email}</p>
             </div>
             <div className="rounded-[1rem] border border-[color:var(--line)] bg-white px-4 py-3 dark:bg-[#0f0f0f]">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">Telefonne cislo</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">Telefónne číslo</p>
               <p className="mt-1 text-[1.05rem] font-semibold text-[color:var(--foreground)]">{client.phone}</p>
             </div>
             {client.contactPerson ? (
               <div className="rounded-[1rem] border border-[color:var(--line)] bg-white px-4 py-3 dark:bg-[#0f0f0f]">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">Kontaktna osoba</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">Kontaktná osoba</p>
                 <p className="mt-1 text-[1.05rem] font-semibold text-[color:var(--foreground)]">{client.contactPerson}</p>
               </div>
             ) : null}
@@ -1785,18 +2063,18 @@ function ClientDetailPanel({ client }: { client: ClientRecord }) {
 
         {client.type === "corporation" ? (
           <div className="rounded-[1.5rem] border border-[color:var(--line)] bg-[color:var(--surface)] p-4">
-            <p className="mb-3 text-sm font-semibold text-[color:var(--foreground)]">Firemne informacie</p>
+            <p className="mb-3 text-sm font-semibold text-[color:var(--foreground)]">Firemné informácie</p>
             <div className="grid gap-3 sm:grid-cols-3">
               <div className="rounded-[1rem] border border-[color:var(--line)] bg-white px-4 py-3 dark:bg-[#0f0f0f]">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">BID</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">IČO</p>
                 <p className="mt-1 text-sm font-semibold text-[color:var(--foreground)]">{client.businessId}</p>
               </div>
               <div className="rounded-[1rem] border border-[color:var(--line)] bg-white px-4 py-3 dark:bg-[#0f0f0f]">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">TID</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">DIČ</p>
                 <p className="mt-1 text-sm font-semibold text-[color:var(--foreground)]">{client.taxId}</p>
               </div>
               <div className="rounded-[1rem] border border-[color:var(--line)] bg-white px-4 py-3 dark:bg-[#0f0f0f]">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">VAT ID</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">IČ DPH</p>
                 <p className="mt-1 text-sm font-semibold text-[color:var(--foreground)]">{client.vatId}</p>
               </div>
             </div>
@@ -1964,7 +2242,7 @@ function ClientsMobileScene() {
 
           <div className="space-y-3">
             <div className="rounded-[1rem] border border-[color:var(--line)] bg-[color:var(--surface)] px-4 py-3">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">Email</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--muted)]">E-mail</p>
               <p className="mt-1 text-sm font-semibold text-[color:var(--foreground)]">{selectedClient.email}</p>
             </div>
             <div className="rounded-[1rem] border border-[color:var(--line)] bg-[color:var(--surface)] px-4 py-3">
@@ -2139,10 +2417,10 @@ export function AppShowcaseSection() {
               Hlavné časti aplikácie
             </p>
             <h2 className="mx-auto mt-5 max-w-4xl font-display text-[clamp(2.6rem,5vw,4.8rem)] font-black leading-[0.95] tracking-[-0.06em] text-[color:var(--foreground)]">
-              Preklikajte si FIDO Calcul ako produkt.
+              Pozrite si, čo všetko FIDO Calcul zvládne.
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-7 text-[color:var(--muted)] sm:text-base">
-              Namiesto dlhého scrollu medzi ukážkami si vyberte konkrétnu časť aplikácie a pozrite si ju priamo v rovnakom vizuálnom systéme.
+              Projekty, detail projektu, Denník, faktúry aj klienti držia pohromade v jednom systéme, aby tím nemusel prepínať medzi viacerými nástrojmi.
             </p>
           </div>
 

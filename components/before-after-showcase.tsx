@@ -155,9 +155,9 @@ export function BeforeAfterShowcase() {
                   <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/55">Projekt</p>
                   <h4 className="mt-2 font-display text-3xl font-black tracking-[-0.05em]">Rodinný dom Ražtočná</h4>
                 </div>
-                <span className="inline-flex items-center gap-2 rounded-full bg-[#4ade80] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[#102813]">
-                  <span className="h-2 w-2 rounded-full bg-[#166534]" />
-                  Denník aktívny
+                <span className="inline-flex items-center gap-2 rounded-full bg-[#51A2F7] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white">
+                  <span className="h-2 w-2 rounded-full bg-white" />
+                  Cenová ponuka
                 </span>
               </div>
 

@@ -93,19 +93,19 @@ export function MarketingHomePage() {
 
             <Reveal delay={230}>
               <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-[color:var(--muted)] sm:text-xl">
-                FIDO Calcul drží projekty, miestnosti, klientov a dokumenty v jednom pokojnom pracovisku, aby malé stavebné tímy nemuseli skákať medzi tabuľkami, poznámkami a ďalšími admin nástrojmi.
+                FIDO Calcul drží projekty, klientov a dokumenty v jednom systéme, aby malé tímy nemuseli prepínať medzi viacerými nástrojmi.
               </p>
             </Reveal>
 
             <Reveal delay={330}>
-              <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <a href={APP_SIGNIN_URL} className="inline-flex items-center justify-center gap-3 rounded-full bg-[color:var(--foreground)] px-7 py-4 text-sm font-semibold text-[color:var(--background)] transition duration-300 hover:-translate-y-1">
+              <div className="mt-8 flex w-full flex-row items-center justify-center gap-3 sm:w-auto sm:gap-4">
+                <a href={APP_SIGNIN_URL} className="inline-flex min-w-0 flex-1 items-center justify-center gap-3 rounded-full bg-[color:var(--foreground)] px-5 py-4 text-sm font-semibold text-[color:var(--background)] transition duration-300 hover:-translate-y-1 sm:flex-none sm:px-7">
                   Web app
                   <ArrowRightIcon className="h-4 w-4" />
                 </a>
                 <a
                   href={APP_STORE_URL}
-                  className="inline-flex items-center justify-center gap-3 rounded-full border border-black/10 bg-white px-7 py-4 text-sm font-semibold text-[color:var(--foreground)] shadow-[0_14px_32px_rgba(10,10,10,0.08)] transition duration-300 hover:-translate-y-1 dark:border-black dark:bg-black dark:text-white"
+                  className="inline-flex min-w-0 flex-1 items-center justify-center gap-3 rounded-full border border-black/10 bg-white px-5 py-4 text-sm font-semibold text-[color:var(--foreground)] shadow-[0_14px_32px_rgba(10,10,10,0.08)] transition duration-300 hover:-translate-y-1 dark:border-black dark:bg-black dark:text-white sm:flex-none sm:px-7"
                 >
                   <AppleIcon className="h-5 w-5" />
                   App Store
