@@ -760,7 +760,7 @@ function ProjectsDesktopScene() {
       <div className="space-y-4">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h3 className="font-display text-[2rem] font-extrabold tracking-[-0.05em] text-[color:var(--foreground)]">Projekty</h3>
+            <h3 className="font-display text-[2rem] font-extrabold  text-[color:var(--foreground)]">Projekty</h3>
           </div>
         </div>
 
@@ -815,7 +815,7 @@ function ProjectsMobileScene() {
       <div className="h-full overflow-y-auto bg-white px-4 pb-28 pt-6 dark:bg-[#0a0a0a]">
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="font-display text-[2.2rem] font-extrabold leading-none tracking-[-0.05em] text-[color:var(--foreground)]">Projekty</h3>
+            <h3 className="font-display text-[2.2rem] font-extrabold leading-none  text-[color:var(--foreground)]">Projekty</h3>
           </div>
         </div>
 
@@ -874,7 +874,7 @@ function ProjectDetailDesktopScene() {
 
           <div className="flex items-center justify-between gap-4">
             <div className="min-w-0">
-              <h3 className="truncate font-display text-[2.35rem] font-extrabold leading-none tracking-[-0.045em] text-[color:var(--foreground)]">Rodinný dom Ražtočná</h3>
+              <h3 className="truncate font-display text-[2.35rem] font-extrabold leading-none  text-[color:var(--foreground)]">Rodinný dom Ražtočná</h3>
             </div>
             <div className="flex items-center gap-2">
               <button type="button" className="rounded-[1rem] bg-[#16a34a] px-4 py-2.5 text-sm font-bold text-white shadow-[0_14px_30px_rgba(22,163,74,0.26)]">
@@ -1049,7 +1049,7 @@ function ProjectDetailMobileScene() {
           <div className="mt-2">
             <StatusPill label="Cenová ponuka" tone="blue" />
           </div>
-          <h3 className="mt-3 font-display text-[2.15rem] font-extrabold leading-none tracking-[-0.045em] text-[color:var(--foreground)]">Rodinný dom Ražtočná</h3>
+          <h3 className="mt-3 font-display text-[2.15rem] font-extrabold leading-none  text-[color:var(--foreground)]">Rodinný dom Ražtočná</h3>
         </div>
 
         <div className="mt-4 rounded-[1.25rem] bg-[color:var(--surface)] px-4 py-3 text-sm font-medium text-[color:var(--muted)]">
@@ -1419,7 +1419,7 @@ function DennikDesktopScene() {
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm font-semibold text-[color:var(--muted)]">Bytový dom Oknárska</p>
-              <h3 className="mt-2 font-display text-[3.2rem] font-extrabold leading-none tracking-[-0.05em] text-[color:var(--foreground)]">Projekt</h3>
+              <h3 className="mt-2 font-display text-[3.2rem] font-extrabold leading-none  text-[color:var(--foreground)]">Projekt</h3>
             </div>
             <div className="flex gap-2">
               <AppHeaderButton>
@@ -1789,7 +1789,7 @@ function InvoicesDesktopScene() {
         <div className="absolute inset-0 p-6 opacity-45 blur-[1px]">
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="font-display text-[3rem] font-extrabold leading-none tracking-[-0.05em] text-[color:var(--foreground)]">Faktúry</h3>
+              <h3 className="font-display text-[3rem] font-extrabold leading-none  text-[color:var(--foreground)]">Faktúry</h3>
               <p className="mt-2 text-sm text-[color:var(--muted)]">Doklady, stavy a ceny na jednom mieste.</p>
             </div>
             <div className="flex gap-2">
@@ -1846,7 +1846,7 @@ function InvoicesMobileScene() {
       <div className="relative h-full overflow-y-auto bg-white px-4 pb-28 pt-6 dark:bg-[#0a0a0a]">
         <div className="opacity-45 blur-[1px]">
           <div className="flex items-center justify-between">
-            <h3 className="font-display text-[2.2rem] font-extrabold leading-none tracking-[-0.05em] text-[color:var(--foreground)]">Faktúry</h3>
+            <h3 className="font-display text-[2.2rem] font-extrabold leading-none  text-[color:var(--foreground)]">Faktúry</h3>
             <AppHeaderButton dark>
               <PlusIcon className="h-4 w-4" />
             </AppHeaderButton>
@@ -2131,7 +2131,7 @@ function ClientsDesktopScene() {
         <div className="space-y-4 overflow-y-auto pr-1">
           <div className="flex items-center justify-between gap-3">
             <div>
-              <h3 className="font-display text-[2rem] font-extrabold leading-none tracking-[-0.05em] text-[color:var(--foreground)]">Klienti</h3>
+              <h3 className="font-display text-[2rem] font-extrabold leading-none  text-[color:var(--foreground)]">Klienti</h3>
               <p className="mt-2 text-sm text-[color:var(--muted)]">Karty klientov, prepojene projekty a dokumenty v jednom rytme.</p>
             </div>
             <div className="flex gap-2">
@@ -2194,7 +2194,7 @@ function ClientsMobileScene() {
     <PhoneShell active="clients" screenClassName="h-[70vh]">
       <div className="h-full overflow-y-auto bg-white px-4 pb-28 pt-6 dark:bg-[#0a0a0a]">
         <div className="flex items-center justify-between">
-          <h3 className="font-display text-[2.2rem] font-extrabold leading-none tracking-[-0.05em] text-[color:var(--foreground)]">Klienti</h3>
+          <h3 className="font-display text-[2.2rem] font-extrabold leading-none  text-[color:var(--foreground)]">Klienti</h3>
           <AppHeaderButton dark>
             <PlusIcon className="h-4 w-4" />
           </AppHeaderButton>
@@ -2289,7 +2289,7 @@ function ShowcaseCopy({
         <p className={cn("text-xs uppercase tracking-[0.25em] text-[color:var(--muted)]", align === "right" && "text-right")}>{eyebrow}</p>
         <h3
           className={cn(
-            "mt-4 font-display text-[clamp(2.3rem,4.4vw,4rem)] font-extrabold leading-[0.94] tracking-[-0.05em] text-[color:var(--foreground)]",
+            "mt-4 font-display text-[clamp(2.3rem,4.4vw,4rem)] font-extrabold leading-[0.94]  text-[color:var(--foreground)]",
             align === "right" && "text-right"
           )}
         >
@@ -2416,7 +2416,7 @@ export function AppShowcaseSection() {
             <p className="inline-flex items-center rounded-full border border-[color:var(--line)] bg-white/80 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[color:var(--muted)] dark:bg-white/5">
               Hlavné časti aplikácie
             </p>
-            <h2 className="mx-auto mt-5 max-w-4xl font-display text-[clamp(2.6rem,5vw,4.8rem)] font-extrabold leading-[0.95] tracking-[-0.06em] text-[color:var(--foreground)]">
+            <h2 className="mx-auto mt-5 max-w-4xl font-display text-[clamp(2.6rem,5vw,4.8rem)] font-extrabold leading-[0.95]  text-[color:var(--foreground)]">
               Pozrite si, čo všetko FIDO Calcul zvládne.
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-7 text-[color:var(--muted)] sm:text-base">

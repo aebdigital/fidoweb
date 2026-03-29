@@ -35,7 +35,7 @@ export default function GdprPage() {
       <section className="section-shell pt-12 sm:pt-16 lg:pt-20">
         <div className="mx-auto max-w-4xl">
           <article className="rounded-[2rem] border border-[color:var(--line)] bg-[color:var(--panel)] px-6 py-8 shadow-[var(--shadow-soft)] sm:px-8 sm:py-10 lg:px-10">
-            <h1 className="font-display text-[clamp(3rem,6vw,5.4rem)] font-extrabold leading-[0.92] tracking-[-0.05em] text-[color:var(--foreground)]">
+            <h1 className="font-display text-[clamp(3rem,6vw,5.4rem)] font-extrabold leading-[0.92]  text-[color:var(--foreground)]">
               Ochrana osobných údajov
             </h1>
 

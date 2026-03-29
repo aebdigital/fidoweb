@@ -164,7 +164,7 @@ export function CookieConsent() {
           <div className="mx-auto flex w-full max-w-[1080px] flex-col gap-5 rounded-[2rem] border border-[color:var(--line)] bg-[color:var(--glass)] p-5 shadow-[0_30px_90px_rgba(10,10,10,0.18)] backdrop-blur-2xl sm:flex-row sm:items-end sm:justify-between sm:p-6">
             <div className="max-w-2xl">
               <p className="text-xs uppercase tracking-[0.24em] text-[color:var(--muted)]">Cookies</p>
-              <h2 className="mt-3 font-display text-3xl font-extrabold tracking-[-0.05em] text-[color:var(--foreground)]">Tento web používa cookies pre stabilitu a lepší prehľad o používaní.</h2>
+              <h2 className="mt-3 font-display text-3xl font-extrabold  text-[color:var(--foreground)]">Tento web používa cookies pre stabilitu a lepší prehľad o používaní.</h2>
               <p className="mt-3 text-sm leading-7 text-[color:var(--muted)]">
                 Nevyhnutné cookies držia web funkčný. Analytické a marketingové cookies môžete zapnúť alebo nechať vypnuté v nastaveniach. Viac nájdete na stránke{" "}
                 <Link href="/gdpr" className="font-semibold text-[color:var(--foreground)] underline decoration-black/15 underline-offset-4 dark:decoration-white/20">
@@ -209,7 +209,7 @@ export function CookieConsent() {
             <div className="flex items-start justify-between gap-4">
               <div className="max-w-2xl">
                 <p className="text-xs uppercase tracking-[0.24em] text-[color:var(--muted)]">Nastavenia cookies</p>
-                <h2 className="mt-3 font-display text-4xl font-extrabold tracking-[-0.05em] text-[color:var(--foreground)]">Vyberte si, ktoré cookies môže používať web FIDO Calcul.</h2>
+                <h2 className="mt-3 font-display text-4xl font-extrabold  text-[color:var(--foreground)]">Vyberte si, ktoré cookies môže používať web FIDO Calcul.</h2>
                 <p className="mt-3 text-sm leading-7 text-[color:var(--muted)]">
                   Výber môžete kedykoľvek zmeniť znova cez odkaz Cookies vo footeri. Viac o spracovaní údajov je na stránke{" "}
                   <Link href="/gdpr" className="font-semibold text-[color:var(--foreground)] underline decoration-black/15 underline-offset-4 dark:decoration-white/20">

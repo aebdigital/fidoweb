@@ -60,7 +60,7 @@ export default function KontaktPage() {
             <div className="pill">Kontakt</div>
           </Reveal>
           <Reveal delay={80}>
-              <h1 className="mx-auto mt-6 max-w-[11ch] font-display text-[clamp(3.4rem,7vw,6.2rem)] font-extrabold leading-[0.92] tracking-[-0.05em] text-[color:var(--foreground)]">
+              <h1 className="mx-auto mt-6 max-w-[11ch] font-display text-[clamp(3.4rem,7vw,6.2rem)] font-extrabold leading-[0.92]  text-[color:var(--foreground)]">
               Máte otázky?
             </h1>
           </Reveal>
@@ -77,7 +77,7 @@ export default function KontaktPage() {
           <Reveal>
             <div className="panel p-8 sm:p-10">
               <p className="text-xs uppercase tracking-[0.24em] text-[color:var(--muted)]">Kontaktné údaje</p>
-              <h2 className="mt-4 font-display text-4xl font-extrabold tracking-[-0.05em] text-[color:var(--foreground)]">
+              <h2 className="mt-4 font-display text-4xl font-extrabold  text-[color:var(--foreground)]">
                 Ozvite sa nám priamo.
               </h2>
               <p className="mt-4 max-w-lg text-base leading-8 text-[color:var(--muted)] sm:text-lg">
@@ -98,7 +98,7 @@ export default function KontaktPage() {
                         <Icon className="h-4.5 w-4.5" />
                       </div>
                       <p className="mt-5 text-[11px] font-bold uppercase tracking-[0.22em] text-[color:var(--muted)]">{item.label}</p>
-                      <p className="mt-3 font-display text-[1.25rem] font-extrabold tracking-[-0.05em] text-[color:var(--foreground)] sm:text-[1.9rem]">{item.value}</p>
+                      <p className="mt-3 font-display text-[1.25rem] font-extrabold  text-[color:var(--foreground)] sm:text-[1.9rem]">{item.value}</p>
                       <p className="mt-3 text-sm leading-7 text-[color:var(--muted)]">{item.detail}</p>
                     </a>
                   );
@@ -110,7 +110,7 @@ export default function KontaktPage() {
           <Reveal delay={120}>
             <div className="panel p-8 sm:p-10">
               <p className="text-xs uppercase tracking-[0.24em] text-[color:var(--muted)]">Kontaktný formulár</p>
-              <h2 className="mt-4 font-display text-4xl font-extrabold tracking-[-0.05em] text-[color:var(--foreground)]">
+              <h2 className="mt-4 font-display text-4xl font-extrabold  text-[color:var(--foreground)]">
                 Napíšte nám.
               </h2>
               <ContactForm />

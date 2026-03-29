@@ -245,7 +245,7 @@ export function HeroProjectPeek() {
 
           <div className="min-w-0 bg-[#f7f7f5] p-4 dark:bg-[#090909] sm:p-5">
             <div>
-              <h3 className="font-display text-[2rem] font-extrabold tracking-[-0.05em] text-[color:var(--foreground)]">Projekty</h3>
+              <h3 className="font-display text-[2rem] font-extrabold  text-[color:var(--foreground)]">Projekty</h3>
             </div>
 
             <div className="mt-4 grid gap-3 sm:grid-cols-2">

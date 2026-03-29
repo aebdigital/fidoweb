@@ -291,7 +291,7 @@ export function DemoPage() {
           <div className="relative z-10 max-w-[76rem] space-y-8">
             <div className="space-y-6">
               <div className="pill">Pôvodný vizuálny smer uložený ako samostatné demo</div>
-              <h1 className="max-w-[10.5ch] font-display text-[clamp(4rem,9vw,8.4rem)] font-extrabold leading-[0.9] tracking-[-0.04em] text-[color:var(--foreground)]">
+              <h1 className="max-w-[10.5ch] font-display text-[clamp(4rem,9vw,8.4rem)] font-extrabold leading-[0.9]  text-[color:var(--foreground)]">
                 Najprv biela.
                 <br />
                 Čierny text.
@@ -314,7 +314,7 @@ export function DemoPage() {
             <div className="grid gap-3 md:max-w-4xl md:grid-cols-3">
               {metrics.map((metric) => (
                 <div key={metric.label} className="panel p-5">
-                  <p className="font-display text-4xl font-extrabold tracking-[-0.05em] text-[color:var(--foreground)]">{metric.value}</p>
+                  <p className="font-display text-4xl font-extrabold  text-[color:var(--foreground)]">{metric.value}</p>
                   <p className="mt-2 text-sm leading-6 text-[color:var(--muted)]">{metric.label}</p>
                 </div>
               ))}
@@ -346,7 +346,7 @@ export function DemoPage() {
               <div className="grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
                 <div className="panel p-5">
                   <p className="text-xs uppercase tracking-[0.25em] text-[color:var(--muted)]">Typografia</p>
-                  <h2 className="mt-3 font-display text-4xl font-extrabold tracking-[-0.05em] text-[color:var(--foreground)]">SF Pro Display Heavy</h2>
+                  <h2 className="mt-3 font-display text-4xl font-extrabold  text-[color:var(--foreground)]">SF Pro Display Heavy</h2>
                   <p className="mt-4 max-w-lg text-sm leading-6 text-[color:var(--muted)]">
                     Hero aj titulky sekcií používajú ten istý ťažký tón, ktorý už dnes žije v iOS úvodných obrazovkách a tab rozhraní.
                   </p>
@@ -354,7 +354,7 @@ export function DemoPage() {
                 <div className="panel flex flex-col gap-6 p-5 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <p className="text-xs uppercase tracking-[0.25em] text-[color:var(--muted)]">Systém režimov</p>
-                    <h3 className="mt-3 max-w-md font-display text-3xl font-extrabold tracking-[-0.05em] text-[color:var(--foreground)]">Čistý svetlý režim a potom jeho presný vizuálny opak.</h3>
+                    <h3 className="mt-3 max-w-md font-display text-3xl font-extrabold  text-[color:var(--foreground)]">Čistý svetlý režim a potom jeho presný vizuálny opak.</h3>
                   </div>
                   <div className="grid w-full max-w-[13rem] grid-cols-2 gap-3">
                     <div className="rounded-[1.5rem] border border-black/10 bg-white p-3 shadow-[0_18px_40px_rgba(0,0,0,0.08)]">
@@ -378,7 +378,7 @@ export function DemoPage() {
           <div className="panel flex flex-col justify-between p-8">
             <div>
               <p className="text-xs uppercase tracking-[0.25em] text-[color:var(--muted)]">Jazyk produktu</p>
-              <h2 className="mt-4 font-display text-5xl font-extrabold tracking-[-0.06em] text-[color:var(--foreground)]">
+              <h2 className="mt-4 font-display text-5xl font-extrabold  text-[color:var(--foreground)]">
                 Navrhnuté z reálnych pohľadov FIDO Calcul, nie z generickej SaaS výplne.
               </h2>
             </div>
@@ -389,19 +389,19 @@ export function DemoPage() {
           <div className="grid gap-4 sm:grid-cols-2">
             <div className="panel p-6">
               <p className="text-xs uppercase tracking-[0.25em] text-[color:var(--muted)]">Prevzaté z iOS</p>
-              <h3 className="mt-3 font-display text-3xl font-extrabold tracking-[-0.05em] text-[color:var(--foreground)]">Ťažké 40pt titulky</h3>
+              <h3 className="mt-3 font-display text-3xl font-extrabold  text-[color:var(--foreground)]">Ťažké 40pt titulky</h3>
               <p className="mt-4 text-sm leading-7 text-[color:var(--muted)]">Priamo inšpirované komponentmi `ScreenTitle` a úvodným titulkom v iOS projekte.</p>
             </div>
             <div className="panel p-6 dark:bg-[linear-gradient(160deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02))]">
               <p className="text-xs uppercase tracking-[0.25em] text-[color:var(--muted)]">Prevzaté z webovej aplikácie</p>
-              <h3 className="mt-3 font-display text-3xl font-extrabold tracking-[-0.05em] text-[color:var(--foreground)]">Sidebar, karty a utilitná hierarchia</h3>
+              <h3 className="mt-3 font-display text-3xl font-extrabold  text-[color:var(--foreground)]">Sidebar, karty a utilitná hierarchia</h3>
               <p className="mt-4 text-sm leading-7 text-[color:var(--muted)]">Prebrané z existujúceho rozloženia webovej aplikácie, ale zredukované na to podstatné pre prezentáciu.</p>
             </div>
             <div className="panel p-6 sm:col-span-2">
               <div className="grid gap-5 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
                 <div>
                   <p className="text-xs uppercase tracking-[0.25em] text-[color:var(--muted)]">Fragmenty aplikácie prenesené na web</p>
-                  <h3 className="mt-3 font-display text-4xl font-extrabold tracking-[-0.05em] text-[color:var(--foreground)]">Kategórie projektov, obaly pohľadov aj obrazové panely prichádzajú z reálneho produktu.</h3>
+                  <h3 className="mt-3 font-display text-4xl font-extrabold  text-[color:var(--foreground)]">Kategórie projektov, obaly pohľadov aj obrazové panely prichádzajú z reálneho produktu.</h3>
                 </div>
                 <div className="grid gap-3 sm:grid-cols-2">
                   <ScreenshotFrame src="/assets/screens/bottom-bar-clients.jpg" alt="Mobilná navigácia klientov" compact />
@@ -417,7 +417,7 @@ export function DemoPage() {
         <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-xs uppercase tracking-[0.25em] text-[color:var(--muted)]">Pohľady</p>
-            <h2 className="mt-3 max-w-3xl font-display text-5xl font-extrabold tracking-[-0.06em] text-[color:var(--foreground)]">
+            <h2 className="mt-3 max-w-3xl font-display text-5xl font-extrabold  text-[color:var(--foreground)]">
               Päť hlavných plôch, každá preložená do čistejšej webovej ukážky.
             </h2>
           </div>
@@ -447,7 +447,7 @@ export function DemoPage() {
         <div className="mt-8 grid gap-5 xl:grid-cols-[0.82fr_1.18fr]">
           <div className="panel flex flex-col p-8">
             <p className="text-xs uppercase tracking-[0.25em] text-[color:var(--muted)]">{activeSection.eyebrow}</p>
-            <h3 className="mt-4 font-display text-4xl font-extrabold tracking-[-0.06em] text-[color:var(--foreground)]">{activeSection.title}</h3>
+            <h3 className="mt-4 font-display text-4xl font-extrabold  text-[color:var(--foreground)]">{activeSection.title}</h3>
             <p className="mt-5 text-base leading-8 text-[color:var(--muted)] sm:text-lg">{activeSection.description}</p>
             <div className="mt-8 rounded-[1.8rem] border border-[color:var(--line)] bg-[color:var(--surface)] p-5">
               <p className="text-xs uppercase tracking-[0.25em] text-[color:var(--muted)]">Prečo to funguje</p>
@@ -471,12 +471,12 @@ export function DemoPage() {
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
                 <div className="rounded-[1.8rem] border border-[color:var(--line)] bg-[color:var(--surface)] p-5">
                   <p className="text-xs uppercase tracking-[0.25em] text-[color:var(--muted)]">Aktívny pohľad</p>
-                  <h4 className="mt-3 font-display text-3xl font-extrabold tracking-[-0.05em] text-[color:var(--foreground)]">{activeSection.label}</h4>
+                  <h4 className="mt-3 font-display text-3xl font-extrabold  text-[color:var(--foreground)]">{activeSection.label}</h4>
                   <p className="mt-4 text-sm leading-7 text-[color:var(--muted)]">Čistý kontrast, veľká typografia a zaoblené kontajnery držia rozhranie zámerné namiesto preplneného.</p>
                 </div>
                 <div className="rounded-[1.8rem] border border-[color:var(--line)] bg-[color:var(--foreground)] p-5 text-[color:var(--background)] shadow-[0_24px_70px_rgba(10,10,10,0.18)]">
                   <p className="text-xs uppercase tracking-[0.25em] text-white/55">Dizajnová poznámka</p>
-                  <p className="mt-4 font-display text-3xl font-extrabold tracking-[-0.05em]">Appka už mala správnu náladu.</p>
+                  <p className="mt-4 font-display text-3xl font-extrabold ">Appka už mala správnu náladu.</p>
                   <p className="mt-4 text-sm leading-7 text-white/72">Tento build hlavne upravuje rozostupy, rytmus a kompozíciu, aby sa produkt vedel na webe prezentovať sebaistejšie.</p>
                 </div>
                 <div className="rounded-[1.8rem] border border-[color:var(--line)] bg-[color:var(--surface)] p-5 lg:min-h-[13rem]">
@@ -502,7 +502,7 @@ export function DemoPage() {
         <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <p className="text-xs uppercase tracking-[0.25em] text-[color:var(--muted)]">Postup</p>
-            <h2 className="mt-3 max-w-3xl font-display text-5xl font-extrabold tracking-[-0.06em] text-[color:var(--foreground)]">
+            <h2 className="mt-3 max-w-3xl font-display text-5xl font-extrabold  text-[color:var(--foreground)]">
               Demo vysvetľuje reálny naceňovací flow namiesto toho, aby sa hralo na generickú šablónu.
             </h2>
           </div>
@@ -515,10 +515,10 @@ export function DemoPage() {
           {workflowSteps.map((step) => (
             <div key={step.step} className="panel group flex h-full flex-col p-5 transition duration-300 hover:-translate-y-1.5">
               <div className="flex items-center justify-between">
-                <span className="font-display text-4xl font-extrabold tracking-[-0.05em] text-[color:var(--foreground)]">{step.step}</span>
+                <span className="font-display text-4xl font-extrabold  text-[color:var(--foreground)]">{step.step}</span>
                 <span className="rounded-full border border-[color:var(--line)] px-3 py-1 text-[0.68rem] uppercase tracking-[0.25em] text-[color:var(--muted)]">Krok</span>
               </div>
-              <h3 className="mt-6 font-display text-3xl font-extrabold tracking-[-0.05em] text-[color:var(--foreground)]">{step.title}</h3>
+              <h3 className="mt-6 font-display text-3xl font-extrabold  text-[color:var(--foreground)]">{step.title}</h3>
               <p className="mt-4 text-sm leading-7 text-[color:var(--muted)]">{step.body}</p>
               <div className="mt-6 overflow-hidden rounded-[1.7rem] border border-[color:var(--line)] bg-[color:var(--surface)] p-3">
                 <Image src={step.screenshot} alt={step.title} width={1200} height={800} className="h-44 w-full rounded-[1.2rem] object-cover transition duration-500 group-hover:scale-[1.03]" />
@@ -533,35 +533,35 @@ export function DemoPage() {
           <div className="grid gap-px bg-[color:var(--line)] lg:grid-cols-2">
             <div className="bg-white p-8 text-black lg:p-10">
               <p className="text-xs uppercase tracking-[0.25em] text-black/45">Svetlý režim</p>
-              <h2 className="mt-4 font-display text-5xl font-extrabold tracking-[-0.06em]">Čistá biela, tvrdá čierna, zdržanlivá sivá.</h2>
+              <h2 className="mt-4 font-display text-5xl font-extrabold ">Čistá biela, tvrdá čierna, zdržanlivá sivá.</h2>
               <p className="mt-6 max-w-xl text-base leading-8 text-black/62 sm:text-lg">
                 Toto je žiadaný default: čistá biela plocha, čierny text, pokojné sivé podporné vrstvy a žiadny dekoratívny chaos. Má to pôsobiť takmer ako tlač.
               </p>
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 <div className="rounded-[1.8rem] border border-black/10 bg-black px-5 py-6 text-white shadow-[0_24px_60px_rgba(0,0,0,0.12)]">
                   <p className="text-xs uppercase tracking-[0.25em] text-white/55">Primárna akcia</p>
-                  <p className="mt-4 font-display text-3xl font-extrabold tracking-[-0.05em]">Vytvoriť ponuku</p>
+                  <p className="mt-4 font-display text-3xl font-extrabold ">Vytvoriť ponuku</p>
                 </div>
                 <div className="rounded-[1.8rem] border border-black/10 bg-black/[0.05] px-5 py-6">
                   <p className="text-xs uppercase tracking-[0.25em] text-black/45">Podporná plocha</p>
-                  <p className="mt-4 font-display text-3xl font-extrabold tracking-[-0.05em]">Detaily klienta</p>
+                  <p className="mt-4 font-display text-3xl font-extrabold ">Detaily klienta</p>
                 </div>
               </div>
             </div>
             <div className="bg-black p-8 text-white lg:p-10">
               <p className="text-xs uppercase tracking-[0.25em] text-white/45">Tmavý režim</p>
-              <h2 className="mt-4 font-display text-5xl font-extrabold tracking-[-0.06em]">Presný inverz, nie iná osobnosť.</h2>
+              <h2 className="mt-4 font-display text-5xl font-extrabold ">Presný inverz, nie iná osobnosť.</h2>
               <p className="mt-6 max-w-xl text-base leading-8 text-white/68 sm:text-lg">
                 Tmavý režim drží tie isté rozostupy, tú istú typografiu a tú istú zdržanlivosť. Mení sa len polarita, takže produkt stále vyzerá ako on sám.
               </p>
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 <div className="rounded-[1.8rem] border border-white/10 bg-white px-5 py-6 text-black shadow-[0_24px_60px_rgba(0,0,0,0.25)]">
                   <p className="text-xs uppercase tracking-[0.25em] text-black/45">Primárna akcia</p>
-                  <p className="mt-4 font-display text-3xl font-extrabold tracking-[-0.05em]">Vygenerovať faktúru</p>
+                  <p className="mt-4 font-display text-3xl font-extrabold ">Vygenerovať faktúru</p>
                 </div>
                 <div className="rounded-[1.8rem] border border-white/10 bg-white/[0.06] px-5 py-6">
                   <p className="text-xs uppercase tracking-[0.25em] text-white/45">Podporná plocha</p>
-                  <p className="mt-4 font-display text-3xl font-extrabold tracking-[-0.05em]">Nastavenia archívu</p>
+                  <p className="mt-4 font-display text-3xl font-extrabold ">Nastavenia archívu</p>
                 </div>
               </div>
             </div>
@@ -574,7 +574,7 @@ export function DemoPage() {
           <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
             <div>
               <p className="text-xs uppercase tracking-[0.25em] text-white/55">Uložené demo</p>
-              <h2 className="mt-4 max-w-4xl font-display text-[clamp(2.4rem,5vw,5rem)] font-extrabold leading-[0.95] tracking-[-0.06em]">
+              <h2 className="mt-4 max-w-4xl font-display text-[clamp(2.4rem,5vw,5rem)] font-extrabold leading-[0.95] ">
                 Pôvodný koncept teraz žije tu ako `Demo`, zatiaľ čo hlavná stránka nesie reálny SaaS web.
               </h2>
               <p className="mt-6 max-w-2xl text-base leading-8 text-white/70 sm:text-lg">

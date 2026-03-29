@@ -176,7 +176,7 @@ function PlanPrice({ amount, yearly }: { amount: number; yearly: boolean }) {
   return (
     <div className="mt-3 min-h-[84px]">
       <div className="flex flex-nowrap items-end gap-2 whitespace-nowrap">
-        <p className="font-display text-[3.05rem] font-extrabold leading-none tracking-[-0.065em] text-[color:var(--foreground)] sm:text-[3.25rem]">
+        <p className="font-display text-[3.05rem] font-extrabold leading-none  text-[color:var(--foreground)] sm:text-[3.25rem]">
           <AnimatedPriceValue value={display} animate={amount > 0} />
         </p>
         <p className="pb-1 text-sm text-[color:var(--muted)]">{amount === 0 ? "" : "/ mes"}</p>
@@ -200,7 +200,7 @@ function PricingCard({ plan, yearly }: { plan: Plan; yearly: boolean }) {
     >
       <div className="min-h-[138px]">
         <div className="flex items-start justify-between gap-4">
-          <h2 className="max-w-[13ch] font-display text-[1.2rem] font-semibold tracking-[-0.045em] text-[color:var(--foreground)] sm:text-[1.3rem]">{plan.name}</h2>
+          <h2 className="max-w-[13ch] font-display text-[1.2rem] font-semibold  text-[color:var(--foreground)] sm:text-[1.3rem]">{plan.name}</h2>
           <div className="flex items-center gap-2">
             {yearly && plan.monthlyPrice > 0 ? (
               <span className="rounded-full border border-[#bfdbfe] bg-[#eff6ff] px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#2563eb]">
@@ -255,7 +255,7 @@ export function PricingPageClient() {
             <div className="pill">Cenník</div>
           </Reveal>
           <Reveal delay={80}>
-            <h1 className="mx-auto mt-4 max-w-[11ch] font-display text-[clamp(2.5rem,5vw,4.5rem)] font-extrabold leading-[0.96] tracking-[-0.05em] text-[color:var(--foreground)]">
+            <h1 className="mx-auto mt-4 max-w-[11ch] font-display text-[clamp(2.5rem,5vw,4.5rem)] font-extrabold leading-[0.96]  text-[color:var(--foreground)]">
               Vyberte si plán pre svoj typ práce.
             </h1>
           </Reveal>
@@ -315,7 +315,7 @@ export function PricingPageClient() {
               <div className="min-w-[980px]">
                 <div className="grid grid-cols-[1.3fr_repeat(4,minmax(0,1fr))] gap-x-6 px-2 pb-4">
                   <div className="self-end">
-                    <h2 className="font-display text-4xl font-extrabold tracking-[-0.05em] text-[color:var(--foreground)]">Funkcie</h2>
+                    <h2 className="font-display text-4xl font-extrabold  text-[color:var(--foreground)]">Funkcie</h2>
                   </div>
 
                   {plans.map((plan) => {
@@ -323,7 +323,7 @@ export function PricingPageClient() {
                     return (
                       <div key={plan.id} className="flex flex-col items-start gap-3">
                         <div>
-                          <p className="font-display text-[1.55rem] font-extrabold tracking-[-0.05em] text-[color:var(--foreground)]">{plan.name}</p>
+                          <p className="font-display text-[1.55rem] font-extrabold  text-[color:var(--foreground)]">{plan.name}</p>
                           <p className="mt-1 text-sm text-[color:var(--muted)]">
                             {formatPrice(display)} {plan.monthlyPrice === 0 ? "" : "/ mes"}
                           </p>
