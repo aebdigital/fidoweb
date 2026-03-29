@@ -127,12 +127,12 @@ export function MarketingHomePage() {
           <div>
             <Reveal>
               <h2 className="max-w-3xl font-display text-5xl font-black tracking-[-0.06em] text-[color:var(--foreground)]">
-                Skutočný produkt, nie len nálada.
+                Štyri piliere každého projektu.
               </h2>
             </Reveal>
             <Reveal delay={80}>
               <p className="mt-4 max-w-lg text-[15px] leading-7 text-[color:var(--muted)] sm:text-base">
-                Rovnaký vizuálny jazyk, ale jasnejšia štruktúra. Web už lepšie vysvetľuje, čo FIDO Calcul robí.
+                Projekty, cenníky, faktúry aj klienti sú prepojené do jedného toku — bez prepínania a bez duplicít.
               </p>
             </Reveal>
 

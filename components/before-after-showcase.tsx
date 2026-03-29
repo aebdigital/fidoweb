@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import type { SVGProps } from "react";
 import { useRef } from "react";
-import { CalendarIcon, CheckIcon, DocumentIcon, GridIcon, UsersIcon } from "@/components/icons";
+import { CalendarIcon, CheckIcon, DocumentIcon, GridIcon } from "@/components/icons";
 import { useSmoothedNumber } from "@/components/use-smoothed-number";
 
 function cn(...classes: Array<string | false | null | undefined>) {
@@ -24,7 +25,7 @@ function clamp(value: number, min: number, max: number) {
 }
 
 const beforeChips = ["Tabuľky", "PDF", "Správy"];
-const afterChips = ["Projekt", "Denník", "Faktúra"];
+const afterChips = ["FIDO CALCUL"];
 
 export function BeforeAfterShowcase() {
   const boundsRef = useRef<DOMRect | null>(null);
@@ -64,7 +65,7 @@ export function BeforeAfterShowcase() {
           <div className="flex items-start justify-between gap-6">
             <div>
               <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-[color:var(--muted)]">Predtým</p>
-              <h3 className="mt-3 font-display text-[clamp(2rem,3vw,2.9rem)] font-black tracking-[-0.05em] text-[color:var(--foreground)]">Roztrúsené podklady</h3>
+              <h3 className="mt-3 font-display text-[clamp(2rem,3vw,2.9rem)] font-black leading-[0.95] tracking-[-0.05em] text-[color:var(--foreground)]">Roztrúsené podklady</h3>
               <p className="mt-3 max-w-sm text-sm leading-7 text-[color:var(--muted)]">Ponuka, hodiny, poznámky a klient sa skladajú z rôznych miest, takže tím stále dohľadáva, čo je vlastne finálne.</p>
             </div>
             <div className="flex flex-wrap justify-end gap-2">
@@ -76,56 +77,14 @@ export function BeforeAfterShowcase() {
             </div>
           </div>
 
-          <div className="mt-10 grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
-            <div className="rounded-[1.7rem] border border-black/10 bg-white/78 p-5 shadow-[0_22px_55px_rgba(10,10,10,0.08)] backdrop-blur-sm">
-              <div className="flex items-center justify-between">
-                <p className="text-sm font-semibold text-[color:var(--foreground)]">Spreadsheet export</p>
-                <span className="rounded-full bg-black/5 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[color:var(--muted)]">v12</span>
-              </div>
-              <div className="mt-4 overflow-hidden rounded-[1.1rem] border border-black/8 bg-[#f9fafb]">
-                <div className="grid grid-cols-[1.2fr_0.7fr_0.8fr] border-b border-black/8 bg-black/[0.03] px-4 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-[color:var(--muted)]">
-                  <span>Položka</span>
-                  <span>Čas</span>
-                  <span>Suma</span>
-                </div>
-                {[
-                  ["Obývačka", "11h", "2 420 €"],
-                  ["Kuchyňa", "8h", "1 880 €"],
-                  ["Montáž", "6h", "1 140 €"],
-                  ["Doprava", "-", "120 €"],
-                ].map((row) => (
-                  <div key={row[0]} className="grid grid-cols-[1.2fr_0.7fr_0.8fr] border-b border-black/6 px-4 py-3 text-sm text-[color:var(--foreground)] last:border-b-0">
-                    <span>{row[0]}</span>
-                    <span className="text-[color:var(--muted)]">{row[1]}</span>
-                    <span className="font-semibold">{row[2]}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <div className="rounded-[1.6rem] border border-black/10 bg-[#4060b4] p-5 text-white shadow-[0_22px_55px_rgba(64,96,180,0.24)]">
-                <div className="flex items-center justify-between">
-                  <p className="text-sm font-semibold">Poznámka v chate</p>
-                  <UsersIcon className="h-4 w-4 opacity-80" />
-                </div>
-                <p className="mt-10 text-base font-semibold">„Skúsme cenu z minulého PDF, ale hodiny sú už asi inde.”</p>
-              </div>
-
-              <div className="rounded-[1.6rem] border border-dashed border-black/12 bg-white/72 p-5">
-                <div className="flex items-center gap-3">
-                  <DocumentIcon className="h-5 w-5 text-[color:var(--muted)]" />
-                  <p className="text-sm font-semibold text-[color:var(--foreground)]">Nie je jasné, čo je finálna verzia.</p>
-                </div>
-                <div className="mt-4 space-y-2">
-                  {["Ponuka_final_final.pdf", "Cennik marec.xlsx", "Poznamky klient.txt"].map((item) => (
-                    <div key={item} className="rounded-[0.9rem] bg-black/[0.04] px-3 py-2 text-xs font-medium text-[color:var(--muted)]">
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+          <div className="mt-6 overflow-hidden rounded-[1.4rem] border border-black/10 shadow-[0_22px_55px_rgba(10,10,10,0.1)]">
+            <Image
+              src="/assets/before-spreadsheet.png"
+              alt="Excel rozpočet pred FIDO Calcul"
+              width={2276}
+              height={1214}
+              className="w-full"
+            />
           </div>
         </div>
 
@@ -137,7 +96,7 @@ export function BeforeAfterShowcase() {
             <div className="flex items-start justify-between gap-6">
               <div>
                 <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-white/65">Potom</p>
-                <h3 className="mt-3 font-display text-[clamp(2rem,3vw,2.9rem)] font-black tracking-[-0.05em]">Jeden pokojný workflow</h3>
+                <h3 className="mt-3 font-display text-[clamp(2rem,3vw,2.9rem)] font-black leading-[0.95] tracking-[-0.05em]">Jeden pokojný workflow</h3>
                 <p className="mt-3 max-w-sm text-sm leading-7 text-white/72">Projekt, klient, denný záznam aj dokument vznikajú v jednej appke, takže tím už nič neprepisuje medzi nástrojmi.</p>
               </div>
               <div className="flex flex-wrap justify-end gap-2">

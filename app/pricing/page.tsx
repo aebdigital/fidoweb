@@ -7,14 +7,14 @@ import { PricingPageClient } from "@/components/pricing-page-client";
 export const metadata: Metadata = {
   title: "Cenník",
   description:
-    "Cenník FIDO Calcul pre služby, stavebníctvo a stavebníctvo s dochádzkou. Pozrite si plány, funkcie a porovnanie cien.",
+    "Cenník FIDO Calcul pre služby, stavebníctvo aj dochádzku. Pozrite si plány, funkcie a porovnanie cien.",
   alternates: {
     canonical: "/pricing",
   },
   openGraph: {
     title: "Cenník | FIDO Calcul",
     description:
-      "Pozrite si ceny FIDO Calcul pre služby, stavebníctvo a stavebníctvo s dochádzkou vrátane porovnania plánov.",
+      "Pozrite si ceny FIDO Calcul pre služby, stavebníctvo aj dochádzku vrátane porovnania plánov.",
     url: `${SITE_URL}/pricing`,
     images: [
       {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   twitter: {
     title: "Cenník | FIDO Calcul",
     description:
-      "Pozrite si ceny FIDO Calcul pre služby, stavebníctvo a stavebníctvo s dochádzkou vrátane porovnania plánov.",
+      "Pozrite si ceny FIDO Calcul pre služby, stavebníctvo aj dochádzku vrátane porovnania plánov.",
     images: ["/assets/app-icon.jpg"],
   },
 };
