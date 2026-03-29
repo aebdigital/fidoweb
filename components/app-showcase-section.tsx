@@ -2417,7 +2417,7 @@ export function AppShowcaseSection() {
               Hlavné časti aplikácie
             </p>
             <h2 className="mx-auto mt-5 max-w-4xl font-display text-[clamp(2.6rem,5vw,4.8rem)] font-extrabold leading-[0.95]  text-[color:var(--foreground)]">
-              Pozrite si, čo všetko FIDO Calcul zvládne.
+              Od projektu až po faktúru.
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-[15px] leading-7 text-[color:var(--muted)] sm:text-base">
               Projekty, detail projektu, Denník, faktúry aj klienti držia pohromade v jednom systéme, aby tím nemusel prepínať medzi viacerými nástrojmi.
