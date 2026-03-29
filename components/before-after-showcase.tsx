@@ -65,7 +65,7 @@ export function BeforeAfterShowcase() {
           <div className="flex items-start justify-between gap-6">
             <div>
               <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-[color:var(--muted)]">Predtým</p>
-              <h3 className="mt-3 font-display text-[clamp(2rem,3vw,2.9rem)] font-black leading-[0.95] tracking-[-0.05em] text-[color:var(--foreground)]">Roztrúsené podklady</h3>
+              <h3 className="mt-3 font-display text-[clamp(2rem,3vw,2.9rem)] font-extrabold leading-[0.95] tracking-[-0.05em] text-[color:var(--foreground)]">Roztrúsené podklady</h3>
               <p className="mt-3 max-w-sm text-sm leading-7 text-[color:var(--muted)]">Ponuka, hodiny, poznámky a klient sa skladajú z rôznych miest, takže tím stále dohľadáva, čo je vlastne finálne.</p>
             </div>
             <div className="flex flex-wrap justify-end gap-2">
@@ -96,7 +96,7 @@ export function BeforeAfterShowcase() {
             <div className="flex items-start justify-between gap-6">
               <div>
                 <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-white/65">Potom</p>
-                <h3 className="mt-3 font-display text-[clamp(2rem,3vw,2.9rem)] font-black leading-[0.95] tracking-[-0.05em]">Jeden pokojný workflow</h3>
+                <h3 className="mt-3 font-display text-[clamp(2rem,3vw,2.9rem)] font-extrabold leading-[0.95] tracking-[-0.05em]">Jeden pokojný workflow</h3>
                 <p className="mt-3 max-w-sm text-sm leading-7 text-white/72">Projekt, klient, denný záznam aj dokument vznikajú v jednej appke, takže tím už nič neprepisuje medzi nástrojmi.</p>
               </div>
               <div className="flex flex-wrap justify-end gap-2">
@@ -112,7 +112,7 @@ export function BeforeAfterShowcase() {
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/55">Projekt</p>
-                  <h4 className="mt-2 font-display text-3xl font-black tracking-[-0.05em]">Rodinný dom Ražtočná</h4>
+                  <h4 className="mt-2 font-display text-3xl font-extrabold tracking-[-0.05em]">Rodinný dom Ražtočná</h4>
                 </div>
                 <span className="inline-flex items-center gap-2 rounded-full bg-[#51A2F7] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white">
                   <span className="h-2 w-2 rounded-full bg-white" />

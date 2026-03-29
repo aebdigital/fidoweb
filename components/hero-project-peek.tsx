@@ -267,7 +267,7 @@ export function HeroProjectPeek() {
                   <Image src={card.image} alt={card.name} fill className="object-cover" />
                   <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0)_0%,rgba(255,255,255,0.2)_32%,rgba(255,255,255,0.92)_100%)] dark:bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.18)_34%,rgba(0,0,0,0.76)_100%)]" />
                   {card.timer ? (
-                    <div className="absolute right-3 top-3 rounded-xl bg-[#ef4444] px-2 py-1 text-[10px] font-black text-white shadow-[0_10px_24px_rgba(239,68,68,0.34)]">
+                    <div className="absolute right-3 top-3 rounded-xl bg-[#ef4444] px-2 py-1 text-[10px] font-extrabold text-white shadow-[0_10px_24px_rgba(239,68,68,0.34)]">
                       {card.timer}
                     </div>
                   ) : null}
@@ -312,7 +312,7 @@ export function HeroProjectPeek() {
                       <div className="mb-1 flex items-center gap-2">
                         <span className="text-xs font-semibold text-[color:var(--muted)]">{project.number}</span>
                         {project.status.includes("Denník") ? (
-                          <span className="inline-flex items-center gap-1 rounded-lg bg-[#ef4444] px-2 py-0.5 text-[10px] font-black text-white shadow-[0_10px_26px_rgba(239,68,68,0.24)]">
+                          <span className="inline-flex items-center gap-1 rounded-lg bg-[#ef4444] px-2 py-0.5 text-[10px] font-extrabold text-white shadow-[0_10px_26px_rgba(239,68,68,0.24)]">
                             <ClockSmall className="h-3 w-3" />
                             02:14:27
                           </span>

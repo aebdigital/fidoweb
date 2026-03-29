@@ -44,7 +44,7 @@ export default function PricingPage() {
             <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
               <div>
                 <p className="text-xs uppercase tracking-[0.24em] text-[color:var(--muted)]">Otázky</p>
-                <h2 className="mt-4 font-display text-[clamp(2.3rem,4vw,4rem)] font-black leading-[0.94] tracking-[-0.05em] text-[color:var(--foreground)]">
+                <h2 className="mt-4 font-display text-[clamp(2.3rem,4vw,4rem)] font-extrabold leading-[0.94] tracking-[-0.05em] text-[color:var(--foreground)]">
                   Máte otázky alebo si nie ste istí výberom?
                 </h2>
                 <p className="mt-4 max-w-2xl text-base leading-8 text-[color:var(--muted)] sm:text-lg">

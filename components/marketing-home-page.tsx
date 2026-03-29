@@ -58,7 +58,7 @@ function FeatureCard({ icon: Icon, title, body }: { icon: typeof GridIcon; title
       <div className="flex h-11 w-11 items-center justify-center rounded-[1.15rem] bg-[color:var(--foreground)] text-[color:var(--background)]">
         <Icon className="h-[18px] w-[18px]" />
       </div>
-      <h3 className="mt-4 font-display text-[1.7rem] font-black leading-[1.02] tracking-[-0.045em] text-[color:var(--foreground)]">{title}</h3>
+      <h3 className="mt-4 font-display text-[1.7rem] font-extrabold leading-[1.02] tracking-[-0.045em] text-[color:var(--foreground)]">{title}</h3>
       <p className="mt-3 text-[13px] leading-6 text-[color:var(--muted)]">{body}</p>
     </div>
   );
@@ -82,7 +82,7 @@ export function MarketingHomePage() {
             </Reveal>
 
             <Reveal delay={120}>
-              <h1 className="mx-auto mt-7 max-w-[12ch] font-display text-[clamp(3rem,6.4vw,5.8rem)] font-black leading-[0.94] tracking-[-0.05em] text-[color:var(--foreground)]">
+              <h1 className="mx-auto mt-7 max-w-[12ch] font-display text-[clamp(3rem,6.4vw,5.8rem)] font-extrabold leading-[0.94] tracking-[-0.05em] text-[color:var(--foreground)]">
                 Stavby, cenníky
                 <br />
                 a fakturácia
@@ -126,7 +126,7 @@ export function MarketingHomePage() {
         <div className="grid gap-6 xl:grid-cols-[0.82fr_1.18fr] xl:items-start">
           <div>
             <Reveal>
-              <h2 className="max-w-3xl font-display text-5xl font-black tracking-[-0.06em] text-[color:var(--foreground)]">
+              <h2 className="max-w-3xl font-display text-5xl font-extrabold tracking-[-0.06em] text-[color:var(--foreground)]">
                 Štyri piliere každého projektu.
               </h2>
             </Reveal>
@@ -158,7 +158,7 @@ export function MarketingHomePage() {
           <Reveal>
             <div className="panel p-8">
               <p className="text-xs uppercase tracking-[0.25em] text-[color:var(--muted)]">Ako ho tímy používajú</p>
-              <h2 className="mt-4 font-display text-5xl font-black tracking-[-0.06em] text-[color:var(--foreground)]">Od projektu po faktúru.</h2>
+              <h2 className="mt-4 font-display text-5xl font-extrabold tracking-[-0.06em] text-[color:var(--foreground)]">Od projektu po faktúru.</h2>
               <p className="mt-6 text-base leading-8 text-[color:var(--muted)] sm:text-lg">
                 FIDO Calcul spája ceny, detail projektu, hodinovú prácu aj dokumenty do jedného operatívneho toku.
               </p>
@@ -185,10 +185,10 @@ export function MarketingHomePage() {
               <Reveal key={item.step} delay={index * 90}>
                 <div className="panel flex h-full flex-col p-6">
                   <div className="flex items-center justify-between">
-                    <span className="font-display text-4xl font-black tracking-[-0.05em] text-[color:var(--foreground)]">{item.step}</span>
+                    <span className="font-display text-4xl font-extrabold tracking-[-0.05em] text-[color:var(--foreground)]">{item.step}</span>
                     <span className="rounded-full border border-[color:var(--line)] px-3 py-1 text-[0.68rem] uppercase tracking-[0.25em] text-[color:var(--muted)]">Postup</span>
                   </div>
-                  <h3 className="mt-6 font-display text-3xl font-black tracking-[-0.05em] text-[color:var(--foreground)]">{item.title}</h3>
+                  <h3 className="mt-6 font-display text-3xl font-extrabold tracking-[-0.05em] text-[color:var(--foreground)]">{item.title}</h3>
                   <p className="mt-4 text-sm leading-7 text-[color:var(--muted)]">{item.body}</p>
                 </div>
               </Reveal>
@@ -203,7 +203,7 @@ export function MarketingHomePage() {
             <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
               <div>
                 <p className="text-xs uppercase tracking-[0.25em] text-white/55 dark:text-black/45">Ďalší krok</p>
-                <h2 className="mt-4 max-w-4xl font-display text-[clamp(2.4rem,5vw,5rem)] font-black leading-[0.95] tracking-[-0.06em]">
+                <h2 className="mt-4 max-w-4xl font-display text-[clamp(2.4rem,5vw,5rem)] font-extrabold leading-[0.95] tracking-[-0.06em]">
                   Pozrite si FIDO Calcul v akcii.
                 </h2>
                 <p className="mt-6 max-w-2xl text-base leading-8 text-white sm:text-lg dark:text-black">
