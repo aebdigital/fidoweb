@@ -85,13 +85,13 @@ export function BeforeAfterShowcase() {
         <div className="absolute inset-0 px-8 py-8 sm:px-10 sm:py-10">
           <div className="flex items-start justify-between gap-6">
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-[color:var(--muted)]">Predtým</p>
-              <h3 className="mt-3 font-display text-[clamp(2rem,3vw,2.9rem)] font-extrabold leading-[0.95]  text-[color:var(--foreground)]">Roztrúsené podklady</h3>
-              <p className="mt-3 max-w-sm text-sm leading-7 text-[color:var(--muted)]">Jedno excelové, druhé v e-maili, tretie v zošite — a keď príde zákazník s otázkou, nikto nevie povedať, ktoré číslo je to posledné.</p>
+              <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-gray-500">Predtým</p>
+              <h3 className="mt-3 font-display text-[clamp(2rem,3vw,2.9rem)] font-extrabold leading-[0.95] text-gray-900">Roztrúsené podklady</h3>
+              <p className="mt-3 max-w-sm text-sm leading-7 text-gray-500">Jedno excelové, druhé v e-maili, tretie v zošite — a keď príde zákazník s otázkou, nikto nevie povedať, ktoré číslo je to posledné.</p>
             </div>
             <div className="flex flex-wrap justify-end gap-2">
               {beforeChips.map((chip) => (
-                <span key={chip} className="rounded-full border border-black/8 bg-white/72 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-[color:var(--foreground)] shadow-sm">
+                <span key={chip} className="rounded-full border border-black/8 bg-white/72 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-gray-900 shadow-sm">
                   {chip}
                 </span>
               ))}
@@ -115,17 +115,17 @@ export function BeforeAfterShowcase() {
 
           <div className="absolute inset-0 px-8 py-8 text-white sm:px-10 sm:py-10">
             <div className="flex items-start justify-between gap-6">
-              <div>
-                <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-white/65">Potom</p>
-                <h3 className="mt-3 font-display text-[clamp(2rem,3vw,2.9rem)] font-extrabold leading-[0.95]">Každý projekt prehľadne na jednom mieste</h3>
-                <p className="mt-3 max-w-sm text-sm leading-7 text-white/72">Fido Calcul rozdeľuje každý projekt do jasných sekcií — klient, miestnosti, cenová ponuka, doklady aj súbory sú vždy tam, kde ich čakáte.</p>
-              </div>
-              <div className="flex flex-wrap justify-end gap-2">
+              <div className="flex flex-wrap gap-2">
                 {afterChips.map((chip) => (
                   <span key={chip} className="rounded-full border border-white/18 bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white">
                     {chip}
                   </span>
                 ))}
+              </div>
+              <div className="text-right ml-auto">
+                <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-white/65">Potom</p>
+                <h3 className="mt-3 font-display text-[clamp(2rem,3vw,2.9rem)] font-extrabold leading-[0.95]">Všetko na jednom mieste</h3>
+                <p className="mt-3 max-w-sm ml-auto text-sm leading-7 text-white/72">Fido Calcul rozdeľuje každý projekt do jasných sekcií — klient, miestnosti, cenová ponuka, doklady aj súbory sú vždy tam, kde ich čakáte.</p>
               </div>
             </div>
 

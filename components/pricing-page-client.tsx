@@ -207,11 +207,6 @@ function PricingCard({ plan, yearly }: { plan: Plan; yearly: boolean }) {
                 -{YEARLY_DISCOUNT_PERCENT} %
               </span>
             ) : null}
-            {plan.featured ? (
-              <span className="rounded-full bg-[#2563eb] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white">
-                Najčastejší
-              </span>
-            ) : null}
           </div>
         </div>
 
