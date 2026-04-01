@@ -10,6 +10,7 @@
   "dependencies": {
     "lenis": "^1.3.21",
     "next": "^15.2.4",
+    "openai": "^6.33.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

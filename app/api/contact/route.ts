@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import OpenAI from "openai";
+import { FIDO_KNOWLEDGE_PROMPT } from "@/lib/fido-knowledge";
 
 const SMTP2GO_API_URL = "https://api.smtp2go.com/v3/email/send";
 
@@ -102,6 +104,51 @@ export async function POST(request: Request) {
         },
         { status: 502 }
       );
+    }
+
+    // Send AI auto-reply to the user (best-effort — never blocks the success response)
+    try {
+      const openaiApiKey = process.env.OPENAI_API_KEY;
+      if (openaiApiKey) {
+        const openai = new OpenAI({ apiKey: openaiApiKey });
+        const aiResponse = await openai.chat.completions.create({
+          model: "gpt-4o-mini",
+          max_tokens: 400,
+          messages: [
+            { role: "system", content: FIDO_KNOWLEDGE_PROMPT },
+            { role: "user", content: message },
+          ],
+        });
+
+        const aiText = aiResponse.choices[0]?.message?.content ?? null;
+
+        if (aiText) {
+          const replyHtml = `
+            <p>Dobrý deň ${escapeHtml(name)},</p>
+            <p>ďakujeme za vašu správu. Tu je rýchla odpoveď na vašu otázku:</p>
+            <hr style="border:none;border-top:1px solid #eee;margin:16px 0" />
+            <p>${escapeHtml(aiText).replace(/\n/g, "<br />")}</p>
+            <hr style="border:none;border-top:1px solid #eee;margin:16px 0" />
+            <p style="color:#888;font-size:13px">Tím FIDO Calcul &nbsp;·&nbsp; kontakt@fido.sk &nbsp;·&nbsp; +421 917 617 202</p>
+          `;
+          const replyText = `Dobrý deň ${name},\n\nďakujeme za vašu správu. Tu je rýchla odpoveď na vašu otázku:\n\n${aiText}\n\n— Tím FIDO Calcul\nkontakt@fido.sk`;
+
+          await fetch(SMTP2GO_API_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              api_key: apiKey,
+              to: [`${name} <${email}>`],
+              sender,
+              subject: "Re: FIDO Calcul — odpoveď na vašu otázku",
+              text_body: replyText,
+              html_body: replyHtml,
+            }),
+          });
+        }
+      }
+    } catch {
+      // Auto-reply failure is non-fatal — the user's message was already received
     }
 
     return NextResponse.json({
