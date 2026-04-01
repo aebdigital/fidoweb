@@ -109,7 +109,9 @@ export async function POST(request: Request) {
     // Send AI auto-reply to the user (best-effort — never blocks the success response)
     try {
       const openaiApiKey = process.env.OPENAI_API_KEY;
+      console.log("[auto-reply] OPENAI_API_KEY present:", !!openaiApiKey);
       if (openaiApiKey) {
+        console.log("[auto-reply] Calling OpenAI...");
         const openai = new OpenAI({ apiKey: openaiApiKey });
         const aiResponse = await openai.chat.completions.create({
           model: "gpt-4o-mini",
@@ -121,6 +123,7 @@ export async function POST(request: Request) {
         });
 
         const aiText = aiResponse.choices[0]?.message?.content ?? null;
+        console.log("[auto-reply] OpenAI response received, aiText length:", aiText?.length ?? 0);
 
         if (aiText) {
           const replyHtml = `
@@ -133,7 +136,8 @@ export async function POST(request: Request) {
           `;
           const replyText = `Dobrý deň ${name},\n\nďakujeme za vašu správu. Tu je rýchla odpoveď na vašu otázku:\n\n${aiText}\n\n— Tím FIDO Calcul\nkontakt@fido.sk`;
 
-          await fetch(SMTP2GO_API_URL, {
+          console.log("[auto-reply] Sending reply email to:", email);
+          const replyResponse = await fetch(SMTP2GO_API_URL, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
@@ -145,10 +149,14 @@ export async function POST(request: Request) {
               html_body: replyHtml,
             }),
           });
+          const replyData = await replyResponse.json();
+          console.log("[auto-reply] SMTP2GO reply result:", JSON.stringify(replyData));
         }
+      } else {
+        console.log("[auto-reply] Skipped — OPENAI_API_KEY not set");
       }
-    } catch {
-      // Auto-reply failure is non-fatal — the user's message was already received
+    } catch (err) {
+      console.error("[auto-reply] Failed:", err);
     }
 
     return NextResponse.json({
