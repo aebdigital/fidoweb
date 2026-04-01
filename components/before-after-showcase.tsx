@@ -29,6 +29,7 @@ const afterChips = ["FIDO CALCUL"];
 
 export function BeforeAfterShowcase() {
   const boundsRef = useRef<DOMRect | null>(null);
+  const draggingRef = useRef(false);
   const { value: split, setTarget } = useSmoothedNumber({
     initialValue: 56,
     stiffness: 0.16,
@@ -44,17 +45,38 @@ export function BeforeAfterShowcase() {
     <div className="panel p-3 sm:p-4">
       <div
         className="group relative h-[560px] overflow-hidden rounded-[2rem] border border-[color:var(--line)] bg-[color:var(--surface)] shadow-[0_40px_100px_rgba(10,10,10,0.12)]"
+        style={{ touchAction: "pan-y" }}
         onPointerEnter={(event) => {
           boundsRef.current = event.currentTarget.getBoundingClientRect();
         }}
+        onPointerDown={(event) => {
+          if (event.pointerType === "mouse") return;
+          boundsRef.current = event.currentTarget.getBoundingClientRect();
+          draggingRef.current = true;
+          event.currentTarget.setPointerCapture?.(event.pointerId);
+          handleMove(event.clientX, boundsRef.current);
+        }}
         onPointerMove={(event) => {
-          if (event.pointerType === "touch") return;
           const bounds = boundsRef.current ?? event.currentTarget.getBoundingClientRect();
           boundsRef.current = bounds;
+
+          if (event.pointerType !== "mouse" && !draggingRef.current) return;
           handleMove(event.clientX, bounds);
         }}
-        onPointerLeave={() => {
+        onPointerUp={(event) => {
+          if (event.pointerType === "mouse") return;
+          draggingRef.current = false;
+          event.currentTarget.releasePointerCapture?.(event.pointerId);
+        }}
+        onPointerCancel={(event) => {
+          if (event.pointerType === "mouse") return;
+          draggingRef.current = false;
+          event.currentTarget.releasePointerCapture?.(event.pointerId);
+        }}
+        onPointerLeave={(event) => {
           boundsRef.current = null;
+          draggingRef.current = false;
+          if (event.pointerType !== "mouse") return;
           setTarget(56);
         }}
       >

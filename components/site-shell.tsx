@@ -33,7 +33,7 @@ export function SiteShell({ activePath, children, ctaHref = APP_SIGNIN_URL, ctaL
         <div className="section-shell flex h-16 items-center justify-between gap-4 md:h-20">
           <Link href="/" className="flex items-center">
             <Image src="/assets/logo.png" alt="Logo FIDO Calcul" width={108} height={40} className="h-10 w-auto dark:hidden" />
-            <Image src="/assets/dark-logo.jpg" alt="Logo FIDO Calcul v tmavom režime" width={108} height={40} className="hidden h-10 w-auto dark:block" />
+            <Image src="/assets/dark-logo.png" alt="Logo FIDO Calcul v tmavom režime" width={108} height={40} className="hidden h-10 w-auto dark:block" />
           </Link>
 
           <nav className="hidden items-center gap-2 md:flex">

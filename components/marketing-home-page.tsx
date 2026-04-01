@@ -77,7 +77,7 @@ export function MarketingHomePage() {
                   <span className="h-7 w-7 rounded-full border border-white bg-[#bfdbfe]" />
                   <span className="h-7 w-7 rounded-full border border-white bg-[#93c5fd]" />
                 </div>
-                <span>Používa 12 000+ používateľov</span>
+                <span>Používa 300+ používateľov</span>
               </div>
             </Reveal>
 
