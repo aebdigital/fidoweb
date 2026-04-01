@@ -3,7 +3,6 @@
 import Image from "next/image";
 import type { SVGProps } from "react";
 import { useRef } from "react";
-import { CalendarIcon, CheckIcon, DocumentIcon, GridIcon } from "@/components/icons";
 import { useSmoothedNumber } from "@/components/use-smoothed-number";
 
 function cn(...classes: Array<string | false | null | undefined>) {
@@ -88,7 +87,7 @@ export function BeforeAfterShowcase() {
             <div>
               <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-[color:var(--muted)]">Predtým</p>
               <h3 className="mt-3 font-display text-[clamp(2rem,3vw,2.9rem)] font-extrabold leading-[0.95]  text-[color:var(--foreground)]">Roztrúsené podklady</h3>
-              <p className="mt-3 max-w-sm text-sm leading-7 text-[color:var(--muted)]">Ponuka, hodiny, poznámky a klient sa skladajú z rôznych miest, takže tím stále dohľadáva, čo je vlastne finálne.</p>
+              <p className="mt-3 max-w-sm text-sm leading-7 text-[color:var(--muted)]">Jedno excelové, druhé v e-maili, tretie v zošite — a keď príde zákazník s otázkou, nikto nevie povedať, ktoré číslo je to posledné.</p>
             </div>
             <div className="flex flex-wrap justify-end gap-2">
               {beforeChips.map((chip) => (
@@ -118,8 +117,8 @@ export function BeforeAfterShowcase() {
             <div className="flex items-start justify-between gap-6">
               <div>
                 <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-white/65">Potom</p>
-                <h3 className="mt-3 font-display text-[clamp(2rem,3vw,2.9rem)] font-extrabold leading-[0.95] ">Jeden pokojný workflow</h3>
-                <p className="mt-3 max-w-sm text-sm leading-7 text-white/72">Projekt, klient, denný záznam aj dokument vznikajú v jednej appke, takže tím už nič neprepisuje medzi nástrojmi.</p>
+                <h3 className="mt-3 font-display text-[clamp(2rem,3vw,2.9rem)] font-extrabold leading-[0.95]">Každý projekt prehľadne na jednom mieste</h3>
+                <p className="mt-3 max-w-sm text-sm leading-7 text-white/72">Fido Calcul rozdeľuje každý projekt do jasných sekcií — klient, miestnosti, cenová ponuka, doklady aj súbory sú vždy tam, kde ich čakáte.</p>
               </div>
               <div className="flex flex-wrap justify-end gap-2">
                 {afterChips.map((chip) => (
@@ -130,53 +129,14 @@ export function BeforeAfterShowcase() {
               </div>
             </div>
 
-            <div className="mt-10 rounded-[1.8rem] border border-white/14 bg-[#4b5476]/78 p-5 shadow-[0_28px_70px_rgba(15,20,40,0.24)] backdrop-blur-sm">
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/55">Projekt</p>
-                  <h4 className="mt-2 font-display text-3xl font-extrabold ">Rodinný dom Ražtočná</h4>
-                </div>
-                <span className="inline-flex items-center gap-2 rounded-full bg-[#51A2F7] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white">
-                  <span className="h-2 w-2 rounded-full bg-white" />
-                  Cenová ponuka
-                </span>
-              </div>
-
-              <div className="mt-6 grid gap-3 sm:grid-cols-3">
-                {[
-                  { label: "Miestnosti", value: "6", icon: GridIcon },
-                  { label: "Hodiny", value: "41h", icon: CalendarIcon },
-                  { label: "Doklady", value: "3", icon: DocumentIcon },
-                ].map((item) => {
-                  const Icon = item.icon;
-                  return (
-                    <div key={item.label} className="rounded-[1.2rem] border border-white/12 bg-white/7 px-4 py-4">
-                      <div className="flex items-center justify-between">
-                        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/55">{item.label}</p>
-                        <Icon className="h-4 w-4 text-white/62" />
-                      </div>
-                      <p className="mt-4 text-2xl font-semibold">{item.value}</p>
-                    </div>
-                  );
-                })}
-              </div>
-
-              <div className="mt-4 rounded-[1.2rem] border border-white/12 bg-white/7 p-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/55">Faktúra</p>
-                    <p className="mt-2 text-lg font-semibold">202603014</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-white/55">Celkom</p>
-                    <p className="mt-2 text-lg font-semibold">28 440 EUR</p>
-                  </div>
-                </div>
-                <div className="mt-4 flex items-center gap-2 text-sm text-white/72">
-                  <CheckIcon className="h-4 w-4 text-[#8bf0a9]" />
-                  Klient, hodiny aj projekt sú už prepojené.
-                </div>
-              </div>
+            <div className="mt-6 overflow-hidden rounded-[1.4rem] border border-white/14 shadow-[0_22px_55px_rgba(10,10,10,0.22)]">
+              <Image
+                src="/assets/app-project-detail.webp"
+                alt="Fido Calcul — detail projektu"
+                width={1992}
+                height={1428}
+                className="w-full"
+              />
             </div>
           </div>
         </div>

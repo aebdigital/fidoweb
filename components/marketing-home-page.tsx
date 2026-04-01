@@ -123,32 +123,30 @@ export function MarketingHomePage() {
       </section>
 
       <section className="section-shell pt-16 lg:pt-24">
-        <div className="grid gap-6 xl:grid-cols-[0.82fr_1.18fr] xl:items-start">
-          <div>
-            <Reveal>
-              <h2 className="max-w-3xl font-display text-5xl font-extrabold  text-[color:var(--foreground)]">
-                Štyri piliere každého projektu.
-              </h2>
-            </Reveal>
-            <Reveal delay={80}>
-              <p className="mt-4 max-w-lg text-[15px] leading-7 text-[color:var(--muted)] sm:text-base">
-                Projekty, cenníky, faktúry aj klienti sú prepojené do jedného toku — bez prepínania a bez duplicít.
-              </p>
-            </Reveal>
+        <Reveal>
+          <h2 className="max-w-3xl font-display text-5xl font-extrabold text-[color:var(--foreground)]">
+            Štyri piliere každého projektu.
+          </h2>
+        </Reveal>
+        <Reveal delay={80}>
+          <p className="mt-4 max-w-lg text-[15px] leading-7 text-[color:var(--muted)] sm:text-base">
+            Projekty, cenníky, faktúry aj klienti sú prepojené do jedného toku — bez prepínania a bez duplicít.
+          </p>
+        </Reveal>
 
-            <div className="mt-7 grid gap-4 md:grid-cols-2">
-              {featureCards.map((card, index) => (
-                <Reveal key={card.title} delay={120 + index * 90}>
-                  <FeatureCard icon={card.icon} title={card.title} body={card.body} />
-                </Reveal>
-              ))}
-            </div>
-          </div>
-
-          <Reveal delay={160} className="xl:pt-2">
-            <BeforeAfterShowcase />
-          </Reveal>
+        <div className="mt-7 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+          {featureCards.map((card, index) => (
+            <Reveal key={card.title} delay={120 + index * 90}>
+              <FeatureCard icon={card.icon} title={card.title} body={card.body} />
+            </Reveal>
+          ))}
         </div>
+      </section>
+
+      <section className="section-shell pt-16 lg:pt-24">
+        <Reveal delay={160}>
+          <BeforeAfterShowcase />
+        </Reveal>
       </section>
 
       <AppShowcaseSection />
