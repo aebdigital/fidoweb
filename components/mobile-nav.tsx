@@ -107,8 +107,7 @@ export function MobileNav({ activePath, items, ctaHref, ctaLabel }: MobileNavPro
 
           <div className="relative flex h-full flex-col px-5 pb-8 pt-24">
             <Link href="/" onClick={() => setOpen(false)} className="absolute left-5 top-5 flex items-center">
-              <Image src="/assets/logo.png" alt="Logo FIDO Calcul" width={108} height={40} className="h-10 w-auto dark:hidden" />
-              <Image src="/assets/dark-logo.jpg" alt="Logo FIDO Calcul v tmavom režime" width={108} height={40} className="hidden h-10 w-auto dark:block" />
+              <Image src="/assets/newdark.png" alt="Logo FIDO Calcul" width={108} height={40} className="h-10 w-auto" />
             </Link>
 
             <button

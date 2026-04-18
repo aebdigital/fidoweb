@@ -250,8 +250,7 @@ export function DemoPage() {
         <div className="section-shell flex h-20 items-center justify-between gap-6">
           <Link href="/" className="flex min-w-0 items-center gap-4">
             <div className="relative h-10 w-10 overflow-hidden rounded-xl border border-[color:var(--line)] bg-[color:var(--panel)] shadow-sm">
-              <Image src="/assets/logo.png" alt="Logo FIDO Calcul" fill className="object-contain p-1 dark:hidden" />
-              <Image src="/assets/dark-logo.jpg" alt="Logo FIDO Calcul v tmavom režime" fill className="hidden object-cover dark:block" />
+              <Image src="/assets/newdark.png" alt="Logo FIDO Calcul" fill className="object-contain p-1" />
             </div>
             <div className="min-w-0">
               <p className="text-[0.68rem] uppercase tracking-[0.26em] text-[color:var(--muted)]">Demo zážitok</p>

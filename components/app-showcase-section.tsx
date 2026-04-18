@@ -519,8 +519,7 @@ function AppSidebar({ active }: { active: NavKey }) {
   return (
     <aside className="hidden border-r border-[color:var(--line)] bg-white/92 px-4 py-4 dark:bg-[#0f0f0f]/96 lg:flex lg:w-[220px] lg:flex-col">
       <div className="flex h-14 items-center justify-center border-b border-[color:var(--line)] pb-4">
-        <Image src="/assets/logo.png" alt="Logo FIDO Calcul" width={108} height={40} className="h-10 w-auto dark:hidden" />
-        <Image src="/assets/dark-logo.jpg" alt="Logo FIDO Calcul v tmavom režime" width={108} height={40} className="hidden h-10 w-auto dark:block" />
+        <Image src="/assets/newdark.png" alt="Logo FIDO Calcul" width={108} height={40} className="h-10 w-auto" />
       </div>
       <div className="mt-6 flex flex-1 flex-col">
         <div className="space-y-2">
