@@ -110,7 +110,7 @@ export function BeforeAfterShowcase() {
         </div>
 
         <div className="pointer-events-none absolute inset-0 overflow-hidden" style={{ clipPath: `inset(0 0 0 ${split}%)`, willChange: "clip-path" }}>
-          <div className="absolute inset-0 bg-[linear-gradient(135deg,#7d83ac_0%,#5f678f_44%,#4d577a_100%)]" />
+          <div className="absolute inset-0 bg-black" />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.12),transparent_24%)]" />
 
           <div className="absolute inset-0 px-8 py-8 text-white sm:px-10 sm:py-10">
