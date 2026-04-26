@@ -654,7 +654,7 @@ function CategoryTile({
       type="button"
       onClick={onClick}
       className={cn(
-        "group relative overflow-hidden rounded-[1.9rem] text-left transition-transform duration-200",
+        "group relative w-full overflow-hidden rounded-[1.9rem] text-left transition-transform duration-200",
         compact ? "h-[164px]" : "h-[140px]",
         active ? "ring-1 ring-black/10 shadow-[0_20px_42px_rgba(0,0,0,0.14)]" : "hover:-translate-y-1"
       )}
@@ -1372,7 +1372,7 @@ function DennikContent({ tab, mobile = false }: { tab: DennikTab; mobile?: boole
   return <DennikAnalyticsView />;
 }
 
-function DennikTabs({ activeTab, onChange }: { activeTab: DennikTab; onChange: (tab: DennikTab) => void }) {
+function DennikTabs({ activeTab, onChange, scroll = false }: { activeTab: DennikTab; onChange: (tab: DennikTab) => void; scroll?: boolean }) {
   const items: Array<{ id: DennikTab; label: string; icon: ReactNode; tone: "green" | "blue" }> = [
     { id: "timer", label: "Prehľad", icon: <ClockIcon className="h-4 w-4" />, tone: "green" },
     { id: "members", label: "Členovia", icon: <UsersIcon className="h-4 w-4" />, tone: "green" },
@@ -1380,7 +1380,7 @@ function DennikTabs({ activeTab, onChange }: { activeTab: DennikTab; onChange: (
   ];
 
   return (
-    <div className="flex gap-2">
+    <div className={cn("flex gap-2", scroll && "overflow-x-auto pb-1")}>
       {items.map((item) => {
         const active = activeTab === item.id;
         const toneClass =
@@ -1397,10 +1397,14 @@ function DennikTabs({ activeTab, onChange }: { activeTab: DennikTab; onChange: (
             key={item.id}
             type="button"
             onClick={() => onChange(item.id)}
-            className={cn("flex flex-1 items-center justify-center gap-2 rounded-[0.95rem] px-4 py-2 text-sm font-semibold transition-colors", toneClass)}
+            className={cn(
+              "flex items-center justify-center gap-2 rounded-[0.95rem] px-4 py-2 text-sm font-semibold transition-colors",
+              scroll ? "whitespace-nowrap" : "flex-1",
+              toneClass
+            )}
           >
             {item.icon}
-            <span className="truncate">{item.label}</span>
+            <span className={cn(!scroll && "truncate")}>{item.label}</span>
           </button>
         );
       })}
@@ -1476,7 +1480,7 @@ function DennikMobileScene() {
                 <XIcon className="h-5 w-5" />
               </button>
             </div>
-            <DennikTabs activeTab={activeTab} onChange={setActiveTab} />
+            <DennikTabs activeTab={activeTab} onChange={setActiveTab} scroll />
           </div>
           <div className="p-4">
             <DennikContent tab={activeTab} mobile />
